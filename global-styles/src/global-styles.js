@@ -33,7 +33,7 @@ export const s = {
   jsc:            'justify-self: center; display:flex;',
 	jss:            'justify-self: stretch; display:flex;',
 
-  if:            'display:inline-flex;',
+  if:             'display:inline-flex;',
 
   tal:            'text-align: left;',
   tac:            'text-align: center;',

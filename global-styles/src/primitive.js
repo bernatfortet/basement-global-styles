@@ -1,0 +1,72 @@
+import styled, { css } from 'styled-components'
+import { s } from './global-styles'
+
+const stringOrNumber = ( input ) => typeof input == 'number' ? input+'px' : input
+
+export const dimensionProps = css`
+	${p => p.w ? `width:${stringOrNumber(p.w)};` : ''}
+	${p => p.h ? `height:${stringOrNumber(p.h)};` : ''}
+	${p => p.minw ? `min-width:${stringOrNumber(p.minw)};` : ''}
+	${p => p.minh ? `min-height:${stringOrNumber(p.minh)};` : ''}
+	${p => p.maxw ? `max-width:${stringOrNumber(p.maxw)};` : ''}
+	${p => p.maxh ? `max-height:${stringOrNumber(p.maxh)};` : ''}
+`
+export const spacingProps = css`
+	${'' /* Margin Props */}
+	${ p => p.m   	? `margin:${p.m}px;` : '' }
+	${ p => p.mh   	? `margin-left:${p.mh}px; margin-right:${p.mh}px;` : '' }
+	${ p => p.mv   	? `margin-top:${p.mv}px; margin-bottom:${p.mv}px;` : '' }
+	${ p => p.mt   	? `margin-top:${p.mt}px;` : '' }
+	${ p => p.mr   	? `margin-right:${p.mr}px;` : '' }
+	${ p => p.mb   	? `margin-bottom:${p.mb}px;` : '' }
+	${ p => p.ml   	? `margin-left:${p.ml}px;` : '' }
+
+	${'' /* Padding Props */}
+	${ p => p.p   	? `padding:${p.p}px;` : '' }
+	${ p => p.ph   	? `padding-left:${p.ph}px; padding-right:${p.ph}px;` : '' }
+	${ p => p.pv   	? `padding-top:${p.pv}px; padding-bottom:${p.pv}px;` : '' }
+	${ p => p.pt   	? `padding-top:${p.pt}px;` : '' }
+	${ p => p.pr   	? `padding-right:${p.pr}px;` : '' }
+	${ p => p.pb   	? `padding-bottom:${p.pb}px;` : '' }
+	${ p => p.pl   	? `padding-left:${p.pl}px;` : '' }
+`
+
+export const boxProps = css`
+	${'' /* Flex Props */}
+	${ p => p.jcc 		? s.jcc : '' }
+	${ p => p.jcsa 		? s.jcsa : '' }
+	${ p => p.jcsb 		? s.jcsb : '' }
+	${ p => p.jcfs 		? s.jcfs : '' }
+	${ p => p.jcfe 		? s.jcfe : '' }
+
+	${ p => p.aic 		? s.aic : '' }
+	${ p => p.aifs 		? s.aifs : '' }
+	${ p => p.aife 		? s.aife : '' }
+
+	${ p => p.ass   	? s.ass : '' }
+	${ p => p.asfs   	? s.asfs : '' }
+	${ p => p.asfe   	? s.asfe : '' }
+	${ p => p.asc   	? s.asc : '' }
+
+	${ p => p.jss   	? s.jss : '' }
+	${ p => p.jsfs   	? s.jsfs : '' }
+	${ p => p.jsfe   	? s.jsfe : '' }
+	${ p => p.jsc   	? s.jsc : '' }
+
+	${ p => p.wrap 		? s.flxWrap : '' }
+	${ p => p.flxWrap ? s.flxWrap : '' }
+	${ p => p.flex 		? `display:flex; flex:${p.flex};` : '' }
+	${ p => p.order   ? `display:flex; order:${p.order};` : '' }
+
+	${spacingProps}
+	${dimensionProps}
+`
+
+export const mediaProps = css`
+	${'' /* Media Props */}
+	${p => p.smHide ? media.sm` ${hideVisually}` : '' }
+	${p => p.mdHide ? media.md` ${hideVisually}` : '' }
+	${p => p.lgHide ? media.lg` ${hideVisually}` : '' }
+
+	${ p => p.if 		? s.if : '' }
+`

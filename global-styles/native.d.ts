@@ -18,9 +18,49 @@ export type SpacingProps = {
   pl?: number,
 }
 
-export const Box: React.ComponentType<SpacingProps & ReactNative.ViewProperties>
-export const Row: React.ComponentType<SpacingProps & ReactNative.ViewProperties>
-export const Column: React.ComponentType<SpacingProps & ReactNative.ViewProperties>
+export type BoxProps = {
+	jcc?: boolean,
+	jcsa?: boolean,
+	jcsb?: boolean,
+	jcfs?: boolean,
+	jcfe?: boolean,
+
+	aic?: boolean,
+	aifs?: boolean,
+	aife?: boolean,
+	ass?: boolean,
+	asfs?: boolean,
+	asfe?: boolean,
+	asc?: boolean,
+
+	jss?: boolean,
+	jsfs?: boolean,
+	jsfe?: boolean,
+	jsc?: boolean,
+
+	wrap?: boolean,
+	flxWrap?: boolean,
+	flex?: number,
+	order?: number,
+}
+
+export type DimensionProps = {
+	w?: string | number,
+	h?: string | number,
+	minw?: string | number,
+	minh?: string | number,
+	maxw?: string | number,
+	maxh?: string | number,
+}
+
+export type RowColProps = {
+	hCenter?: boolean,
+	vCenter?: boolean,
+}
+
+export const Box: React.ComponentType<SpacingProps & BoxProps & ReactNative.ViewProperties>
+export const Row: React.ComponentType<SpacingProps & BoxProps & RowColProps & ReactNative.ViewProperties>
+export const Column: React.ComponentType<SpacingProps & BoxProps & RowColProps & ReactNative.ViewProperties>
 
 export const s: {
   abs: string,
