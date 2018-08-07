@@ -1,7 +1,16 @@
 import * as ReactNative from 'react-native'
 import * as React from 'react'
 
-export type SpacingProps = {
+export type DimensionProps = {
+	w?: string | number,
+	h?: string | number,
+	minw?: string | number,
+	minh?: string | number,
+	maxw?: string | number,
+	maxh?: string | number,
+}
+
+export interface SpacingProps extends DimensionProps {
   m?: number,
   mh?: number,
   mv?: number,
@@ -18,7 +27,11 @@ export type SpacingProps = {
   pl?: number,
 }
 
-export type BoxProps = {
+
+export interface BoxProps extends SpacingProps {
+	style?: any,
+	className?: string,
+
 	jcc?: boolean,
 	jcsa?: boolean,
 	jcsb?: boolean,
@@ -38,29 +51,39 @@ export type BoxProps = {
 	jsfe?: boolean,
 	jsc?: boolean,
 
+	center?: boolean,
+
+	abs?: boolean,
+	rel?: boolean,
+
 	wrap?: boolean,
 	flxWrap?: boolean,
 	flex?: number,
 	order?: number,
+
+	row?: boolean,
+
+	background?: string,
+	color?: string,
+	br?: string | number,
 }
 
-export type DimensionProps = {
-	w?: string | number,
-	h?: string | number,
-	minw?: string | number,
-	minh?: string | number,
-	maxw?: string | number,
-	maxh?: string | number,
-}
 
 export type RowColProps = {
 	hCenter?: boolean,
 	vCenter?: boolean,
 }
 
-export const Box: React.ComponentType<SpacingProps & BoxProps & ReactNative.ViewProperties>
-export const Row: React.ComponentType<SpacingProps & BoxProps & RowColProps & ReactNative.ViewProperties>
-export const Column: React.ComponentType<SpacingProps & BoxProps & RowColProps & ReactNative.ViewProperties>
+type BoxComponentProps = {
+	row?: boolean,
+}
+export const Box: React.ComponentType<BoxComponentProps & RowColProps & BoxProps & ReactNative.ViewProperties>
+export const Row: React.ComponentType<BoxProps & RowColProps & ReactNative.ViewProperties>
+export const Column: React.ComponentType<BoxProps & RowColProps & ReactNative.ViewProperties>
+export const Spacer: React.ComponentType<BoxProps & ReactNative.ViewProperties>
+
+
+export const boxProps: string
 
 export const s: {
   abs: string,
@@ -114,4 +137,17 @@ export const s: {
   full: string,
   ellipsis: string,
   fixedFull: string,
+
+	spacingProps: string,
+}
+
+export interface TextProps extends SpacingProps {
+	bold?: boolean,
+	color?: string,
+	lh?: number,
+	opacity?: number,
+	op?: number,
+	center?: boolean,
+	right?: boolean,
+	flex?: number,
 }

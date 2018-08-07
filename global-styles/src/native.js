@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components'
 
 import { s } from './global-styles'
 import { c } from './global-colors'
-import { boxProps, dimensionProps, spacingProps } from './primitive'
+import { boxProps, dimensionProps, spacingProps, textProps } from './primitive'
 
 
 const Root = styled(View)``
@@ -36,6 +36,7 @@ const globalStyles = {
 	...s,
 	boxProps,
 	spacingProps,
+	textProps,
 	dimensionProps,
 }
 

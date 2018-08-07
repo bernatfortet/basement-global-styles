@@ -4,8 +4,9 @@ import styled, { css } from 'styled-components'
 
 import { s } from './global-styles'
 import { c } from './global-colors'
-import { boxProps, dimensionProps, spacingProps, mediaProps } from './primitive'
+import { boxProps, dimensionProps, spacingProps, textProps } from './primitive'
 
+const Root = styled.div``
 
 const size = (size) => `width:${size ? size : 24}px; height:${size ? size : 24}px;`
 const anim = css` transition:300ms;
@@ -17,20 +18,31 @@ const unselectable = css` user-select:none; & * { user-select:none; } `
 const untouchable = css` ${unselectable} pointer-events:none; & * { pointer-events:none; }  `
 const actionable = css` ${unselectable} cursor:pointer;  `
 
-// Usage s.media.sm``
-const media = {
-  sm: (...args) => css`
-    @media (max-width: 500px) {
+
+export const mediaDimensions = {
+	sm: 500,
+	md: 768,
+	lg: 1110,
+}
+
+export const media = {
+	sm: (...args) => css`
+    @media (max-width: ${mediaDimensions.sm}px) {
       ${ css(...args) }
     }
   `,
 	md: (...args) => css`
-    @media (max-width: 768px) {
+    @media (max-width: ${mediaDimensions.md}px) {
       ${ css(...args) }
     }
   `,
 	lg: (...args) => css`
-    @media (max-width: 1100px) {
+    @media (max-width: ${mediaDimensions.lg}px) {
+      ${ css(...args) }
+    }
+  `,
+	w: ( width, ...args) => css`
+    @media (max-width: ${width}px) {
       ${ css(...args) }
     }
   `
@@ -39,44 +51,37 @@ const media = {
 export const hideVisually = css` border: 0; clip: rect(0 0 0 0); clipPath: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px;
 `
 
-const baseTriangle = css` content:'';  width:0; height:0; `
-export const triangleRight = ( size, color ) => css` ${baseTriangle}
-	border-top:${size}px solid transparent; border-bottom:${size}px solid transparent; border-left:${size}px solid ${color}; }
-`
-export const triangleLeft = ( size, color ) => css` ${baseTriangle}
-	border-top:${size}px solid transparent; border-bottom:${size}px solid transparent; border-right:${size}px solid ${color}; }
-`
-export const triangleUp = ( size, color ) => css` ${baseTriangle}
-	border-left:${size}px solid transparent; border-right:${size}px solid transparent; border-bottom:${size}px solid ${color}; }
-`
-export const triangleDown = ( size, color ) => css` ${baseTriangle}
-	border-left:${size}px solid transparent; border-right:${size}px solid transparent; border-top:${size}px solid ${color}; }
-`
+export const mediaProps = css`
+	${'' /* Media Props */}
+	${p => p.smHide ? media.sm` ${hideVisually}` : '' }
+	${p => p.mdHide ? media.md` ${hideVisually}` : '' }
+	${p => p.lgHide ? media.lg` ${hideVisually}` : '' }
 
-
-const Root = styled.div``
+	${ p => p.if 		? s.if : '' }
+`
 
 export const Column = styled(Root)`
   ${p => p.hCenter ? s.aic : '' }
   ${p => p.vCenter ? s.jcc : '' }
-  ${s.flxCol}
 	${mediaProps}
 	${boxProps}
+	${s.flxCol}
 `
 export const Row = styled(Root)`
   ${p => p.hCenter ? s.jcc : '' }
 	${p => p.vCenter ? s.aic : '' }
-  ${s.flxRow}
 	${mediaProps}
 	${boxProps}
+	${s.flxRow}
 `
 export const Box = styled(({ tag, children, ...props }) => React.createElement(tag ? tag : Root, props, children))`
 	${boxProps}
 	${mediaProps}
-	${p => p.column ? s.flxCol : '' }
 	${p => p.row ? s.flxRow : '' }
-`
+	${p => p.row && p.hCenter ? s.jcc : '' }
+	${p => p.row && p.vCenter ? s.aic : '' }
 
+`
 
 export const Flex1 = styled(Root)` display:flex; flex:1;`
 
@@ -96,7 +101,6 @@ export const Circle = styled(Root)`
 export const ScreenContainer = styled(Root)` width:100%; height:100%; ${s.flxRow} ${s.jcsb} ${s.aic} `
 
 
-
 const globalStyles = {
 	...s,
 
@@ -108,12 +112,11 @@ const globalStyles = {
 	unselectable,
 	untouchable,
 	actionable,
-	triangleRight,
-	triangleLeft,
-	triangleUp,
-	triangleDown,
+
 	boxProps,
 	spacingProps,
+	textProps,
+	dimensionProps,
 }
 
 // Helpers

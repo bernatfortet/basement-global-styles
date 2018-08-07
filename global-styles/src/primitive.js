@@ -3,6 +3,8 @@ import { s } from './global-styles'
 
 const stringOrNumber = ( input ) => typeof input == 'number' ? input+'px' : input
 
+
+
 export const dimensionProps = css`
 	${p => p.w ? `width:${stringOrNumber(p.w)};` : ''}
 	${p => p.h ? `height:${stringOrNumber(p.h)};` : ''}
@@ -12,6 +14,7 @@ export const dimensionProps = css`
 	${p => p.maxh ? `max-height:${stringOrNumber(p.maxh)};` : ''}
 `
 export const spacingProps = css`
+	${dimensionProps}
 	${'' /* Margin Props */}
 	${ p => p.m   	? `margin:${p.m}px;` : '' }
 	${ p => p.mh   	? `margin-left:${p.mh}px; margin-right:${p.mh}px;` : '' }
@@ -32,6 +35,8 @@ export const spacingProps = css`
 `
 
 export const boxProps = css`
+	${spacingProps}
+
 	${'' /* Flex Props */}
 	${ p => p.jcc 		? s.jcc : '' }
 	${ p => p.jcsa 		? s.jcsa : '' }
@@ -43,6 +48,8 @@ export const boxProps = css`
 	${ p => p.aifs 		? s.aifs : '' }
 	${ p => p.aife 		? s.aife : '' }
 
+	${ p => p.center  ? `${s.aic} ${s.jcc}` : '' }
+
 	${ p => p.ass   	? s.ass : '' }
 	${ p => p.asfs   	? s.asfs : '' }
 	${ p => p.asfe   	? s.asfe : '' }
@@ -53,20 +60,32 @@ export const boxProps = css`
 	${ p => p.jsfe   	? s.jsfe : '' }
 	${ p => p.jsc   	? s.jsc : '' }
 
+	${ p => p.pabs   	? s.abs : '' }
+	${ p => p.prel   	? s.rel : '' }
+	${ p => p.pfix  	? `position: fixed` : '' }
+
+	${ p => p.top   	? `top: ${p.top}` : '' }
+	${ p => p.botttom ? `botttom: ${p.botttom}` : '' }
+	${ p => p.left   	? `left: ${p.left}` : '' }
+	${ p => p.right   ? `right: ${p.right}` : '' }
+
 	${ p => p.wrap 		? s.flxWrap : '' }
 	${ p => p.flxWrap ? s.flxWrap : '' }
 	${ p => p.flex 		? `display:flex; flex:${p.flex};` : '' }
 	${ p => p.order   ? `display:flex; order:${p.order};` : '' }
 
-	${spacingProps}
-	${dimensionProps}
+	${ p => p.background	? `background-color:${p.background};` : '' }
+	${ p => p.color 			? `color:${p.color};` : '' }
+	${ p => p.br 					? `border-radius:${stringOrNumber(p.br)};` : '' }
 `
 
-export const mediaProps = css`
-	${'' /* Media Props */}
-	${p => p.smHide ? media.sm` ${hideVisually}` : '' }
-	${p => p.mdHide ? media.md` ${hideVisually}` : '' }
-	${p => p.lgHide ? media.lg` ${hideVisually}` : '' }
 
-	${ p => p.if 		? s.if : '' }
+export const textProps = css`
+  ${p => p.lh ? `line-height:${p.lh}px;` : ''}
+  ${p => p.color ? `color:${p.color};` : ''}
+	${p => p.opacity ? `opacity:${p.opacity};` : ''}
+  ${p => p.op ? `opacity:${p.op};` : ''}
+  ${p => p.center ? `text-align:center;` : ''}
+  ${p => p.right ? `text-align:right;` : ''}
+  ${p => p.flex ? `flex:${p.flex};` : ''}
 `
