@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bernatfortet/basement.git"
+    "url": "git+https://github.com/bernatfortet/basement-global-styles.git"
   },
   "scripts": {
     "compile": "babel --presets es2015,stage-0 -d lib/ src/",
@@ -20,9 +20,9 @@
   "author": "Bernat Fortet Unanue",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bernatfortet/basement/issues"
+    "url": "https://github.com/bernatfortet/basement-global-styles/issues"
   },
-  "homepage": "https://github.com/bernatfortet/basement#readme",
+  "homepage": "https://github.com/bernatfortet/basement-global-styles#readme",
   "dependencies": {
     "styled-components": "^3.2.5"
   }

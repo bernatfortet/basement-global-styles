@@ -73,15 +73,12 @@ export interface BoxProps extends SpacingProps {
   tag?: any
 }
 
-export type RowColProps = {
+type RowColProps = {
   hCenter?: boolean,
   vCenter?: boolean,
 }
 
-type BoxComponentProps = {
-  row?: boolean,
-}
-export type Box = React.SFC<BoxComponentProps & RowColProps & BoxProps & React.BaseHTMLAttributes<any>>
+export type Box = React.SFC<BoxProps & React.BaseHTMLAttributes<any>>
 export type Row = React.SFC<BoxProps & RowColProps & React.BaseHTMLAttributes<any>>
 export type Column = React.SFC<BoxProps & RowColProps & React.BaseHTMLAttributes<any>>
 
@@ -144,9 +141,6 @@ export type s = {
   row: boolean,
 
   flex: number | string,
-
-
-
 }
 
 export type WebBoxProps = {
