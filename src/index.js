@@ -48,9 +48,6 @@ export const media = {
   `
 }
 
-export const hideVisually = css` border: 0; clip: rect(0 0 0 0); clipPath: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px;
-`
-
 export const mediaProps = css`
 	${'' /* Media Props */}
 	${p => p.smHide ? media.sm` ${hideVisually}` : '' }
@@ -82,24 +79,6 @@ export const Box = styled(({ tag, children, ...props }) => React.createElement(t
 	${p => p.row && p.vCenter ? s.aic : '' }
 
 `
-
-export const Flex1 = styled(Root)` display:flex; flex:1;`
-
-export const CircularAvatar = styled(Root)`
-	width:${p => p.size}px; height:${p => p.size}px;
-	background-image:url(${p => p.imageUrl}); background-size:contain;
-	border-radius:50%;
-`
-
-export const Rounded = styled(Root)` border-radius: ${ p => p.radius ? p.radius : 6 }px `
-export const Spacer = styled(Root)` ${dimensionProps} `
-export const Card = styled(Rounded, Row)`padding:20px; background-color:white; ${s.cardShadow} `
-
-export const Circle = styled(Root)`
-  width: ${ p => p.size ? p.size : 24 }px; height: ${ p => p.size ? p.size : 24 }px; background-color: grey; border-radius:50%;`
-
-export const ScreenContainer = styled(Root)` width:100%; height:100%; ${s.flxRow} ${s.jcsb} ${s.aic} `
-
 
 const globalStyles = {
 	...s,

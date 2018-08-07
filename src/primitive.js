@@ -3,15 +3,15 @@ import { s } from './global-styles'
 
 const stringOrNumber = ( input ) => typeof input == 'number' ? input+'px' : input
 
-
-
 export const dimensionProps = css`
 	${p => p.w ? `width:${stringOrNumber(p.w)};` : ''}
 	${p => p.h ? `height:${stringOrNumber(p.h)};` : ''}
 	${p => p.minw ? `min-width:${stringOrNumber(p.minw)};` : ''}
 	${p => p.minh ? `min-height:${stringOrNumber(p.minh)};` : ''}
 	${p => p.maxw ? `max-width:${stringOrNumber(p.maxw)};` : ''}
-	${p => p.maxh ? `max-height:${stringOrNumber(p.maxh)};` : ''}
+  ${p => p.maxh ? `max-height:${stringOrNumber(p.maxh)};` : ''}
+	${p => p.size ? `width:${stringOrNumber(p.size)}; height:${stringOrNumber(p.size)};` : ''}
+  
 `
 export const spacingProps = css`
 	${dimensionProps}
