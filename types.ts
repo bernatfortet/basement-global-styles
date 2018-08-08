@@ -69,10 +69,6 @@ export interface BoxProps extends SpacingProps {
   br?: string | number,
   color?: string,
 
-  smHide?: boolean,
-  mdHide?: boolean,
-  lgHide?: boolean,
-
   tag?: any
 
   opacity?: number,
@@ -84,12 +80,10 @@ export type RowColProps = {
   vCenter?: boolean,
 }
 
-export type s = {
-  abs: string,
-  absHCenter: string,
-  absVCenter: string,
-  rel: string,
-
+export type GlobalStyles = {
+  pabs: string,
+  prel: string,
+  
   flx: string,
   flx1: string,
   flxRow: string,
@@ -101,6 +95,7 @@ export type s = {
   aic: string,
   ais: string,
   aife: string,
+
 
   jcc: string,
   jcfs: string,
@@ -125,8 +120,6 @@ export type s = {
   tar: string,
 
   ofh: string,
-  rounded: string,
-  cardShadow: string,
 
   cover: string,
   contain: string,
@@ -136,29 +129,40 @@ export type s = {
   full: string,
   ellipsis: string,
   fixedFull: string,
-  size: (s: number) => string,
 
   spacingProps: string,
   boxProps: string,
-  row: boolean,
+	textProps: string,
 
-  flex: number | string,
+  dimensionProps: string,
 }
 
-export type WebBoxProps = {
-  unselectable?: Interpolation<any>,
-  untouchable?: Interpolation<any>,
-  anim?: Interpolation<any>,
+export type WebGlobalStyles = {
+  size: (s: number) => string,
+
+	hideVisually: string, 
+  actionable: string, 
+  
+  unselectable?: string,
+  untouchable?: string,
+  anim?: string,
   mediaDimensions?: {
     sm: number,
     md: number,
     lg: number,
   }
+
   media?: {
     sm: (css: any) => any,
     md: (css: any) => any,
     lg: (css: any) => any,
   },
+} 
+
+export type MediaProps = {
+  smHide?: boolean,
+  mdHide?: boolean,
+  lgHide?: boolean,
 } 
 
 export interface TextProps extends SpacingProps {
@@ -172,10 +176,4 @@ export interface TextProps extends SpacingProps {
   right?: boolean,
   flex?: number,
   upcase?: boolean,
-
-  black?: boolean,
-  white?: boolean,
-  blue?: boolean,
-  red?: boolean,
-  green?: boolean,
 }

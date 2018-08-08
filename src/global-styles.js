@@ -1,9 +1,6 @@
 export const s = {
-
-  abs:            'position: absolute;',
-	absHCenter: 		'position: absolute; left:0; right:0; margin-left:auto; margin-right:auto;',
-	absVCenter: 		'position: absolute; top:0; bottom:0; margin-top:auto; margin-bottom:auto;',
-  rel:            'position: relative;',
+  pabs:            'position: absolute;',
+  prel:            'position: relative;',
 
 	flx:           	'display:flex;',
   flx1:           'flex: 1; display:flex;',
@@ -40,8 +37,6 @@ export const s = {
   tar:            'text-align: right;',
 
   ofh:            'overflow: hidden;',
-  rounded:        'borderRadius: 6px;',
-  cardShadow:     'box-shadow 0 2px 8px rgba(0,0,0,0.2);',
 
   cover:          'background-size: cover;',
   contain:        'background-size: contain;',

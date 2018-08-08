@@ -60,8 +60,8 @@ export const boxProps = css`
 	${ p => p.jsfe   	? s.jsfe : '' }
 	${ p => p.jsc   	? s.jsc : '' }
 
-	${ p => p.pabs   	? s.abs : '' }
-	${ p => p.prel   	? s.rel : '' }
+	${ p => p.pabs   	? s.pabs : '' }
+	${ p => p.prel   	? s.prel : '' }
 	${ p => p.pfix  	? `position: fixed` : '' }
 
 	${ p => p.top   	? `top: ${p.top}` : '' }
@@ -84,11 +84,14 @@ export const boxProps = css`
 
 
 export const textProps = css`
-  ${p => p.lh ? `line-height:${p.lh}px;` : ''}
+  ${p => p.bold ? `font-weight:600;` : ''}
+  ${p => p.semi ? `font-weight:500;` : ''}
   ${p => p.color ? `color:${p.color};` : ''}
+  ${p => p.lh ? `line-height:${p.lh}px;` : ''}
 	${p => p.opacity ? `opacity:${p.opacity};` : ''}
   ${p => p.op ? `opacity:${p.op};` : ''}
   ${p => p.center ? `text-align:center;` : ''}
   ${p => p.right ? `text-align:right;` : ''}
   ${p => p.flex ? `flex:${p.flex};` : ''}
+  ${p => p.upcase ? `text-transform:uppercase;` : ''}
 `

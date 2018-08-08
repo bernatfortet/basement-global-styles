@@ -12,22 +12,20 @@ const size = (size) => `width:${size ? size : 24}px; height:${size ? size : 24}p
 const anim = css` transition:300ms;
 	&:hover{ transition: all 100ms; }
 `
-const icon = css` width:${p => p.size}px; height:${p => p.size}px; font-size:${p => p.size}px; `
-
 const unselectable = css` user-select:none; & * { user-select:none; } `
 const untouchable = css` ${unselectable} pointer-events:none; & * { pointer-events:none; }  `
 const actionable = css` ${unselectable} cursor:pointer;  `
 
-export const hideVisually = css` border: 0; clip: rect(0 0 0 0); clipPath: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px;
+const hideVisually = css` border: 0; clip: rect(0 0 0 0); clipPath: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px;
 `
 
-export const mediaDimensions = {
+const mediaDimensions = {
 	sm: 500,
 	md: 768,
 	lg: 1110,
 }
 
-export const media = {
+const media = {
 	sm: (...args) => css`
     @media (max-width: ${mediaDimensions.sm}px) {
       ${ css(...args) }
@@ -87,7 +85,6 @@ const globalStyles = {
 
 	size,
 	anim,
-	icon,
 	media,
 	hideVisually,
 	unselectable,
@@ -97,9 +94,9 @@ const globalStyles = {
 	boxProps,
 	spacingProps,
 	textProps,
-	dimensionProps,
+  dimensionProps,
+  
+  mediaDimensions,
 }
-
-// Helpers
 
 export { c, globalStyles as s }
