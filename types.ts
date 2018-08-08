@@ -9,14 +9,15 @@ export type DimensionProps = {
 }
 
 export interface SpacingProps extends DimensionProps {
-  m?: number,
+  m?: number | string,
   mh?: number,
   mv?: number,
   mt?: number,
   mr?: number,
   mb?: number,
   ml?: number,
-  p?: number,
+  
+  p?: number | string,
   ph?: number,
   pv?: number,
   pt?: number,
@@ -71,16 +72,15 @@ export interface BoxProps extends SpacingProps {
   lgHide?: boolean,
 
   tag?: any
+
+  opacity?: number,
+  op?: number,
 }
 
-type RowColProps = {
+export type RowColProps = {
   hCenter?: boolean,
   vCenter?: boolean,
 }
-
-export type Box = React.SFC<BoxProps & React.BaseHTMLAttributes<any>>
-export type Row = React.SFC<BoxProps & RowColProps & React.BaseHTMLAttributes<any>>
-export type Column = React.SFC<BoxProps & RowColProps & React.BaseHTMLAttributes<any>>
 
 export type s = {
   abs: string,
@@ -144,18 +144,18 @@ export type s = {
 }
 
 export type WebBoxProps = {
-  unselectable: string,
-  untouchable: any,
-  anim: string,
+  unselectable: boolean,
+  untouchable: boolean,
+  anim: boolean,
   mediaDimensions: {
     sm: number,
     md: number,
     lg: number,
   }
   media: {
-    sm: any,
-    md: any,
-    lg: any,
+    sm: () => void,
+    md: () => void,
+    lg: () => void,
   },
 } 
 

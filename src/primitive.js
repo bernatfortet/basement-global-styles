@@ -76,7 +76,10 @@ export const boxProps = css`
 
 	${ p => p.background	? `background-color:${p.background};` : '' }
 	${ p => p.color 			? `color:${p.color};` : '' }
-	${ p => p.br 					? `border-radius:${stringOrNumber(p.br)};` : '' }
+  ${ p => p.br 					? `border-radius:${stringOrNumber(p.br)};` : '' }
+  
+	${p => p.opacity ? `opacity:${p.opacity};` : ''}
+  ${p => p.op ? `opacity:${p.op};` : ''}
 `
 
 
