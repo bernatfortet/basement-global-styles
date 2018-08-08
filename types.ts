@@ -1,5 +1,3 @@
-import { Interpolation } from 'styled-components'
-
 export type DimensionProps = {
   w?: string | number,
   h?: string | number,
@@ -29,7 +27,12 @@ export interface SpacingProps extends DimensionProps {
 }
 
 
-export interface BoxProps extends SpacingProps {
+export type RowColProps = {
+  hCenter?: boolean,
+  vCenter?: boolean,
+}
+
+export interface BoxProps extends SpacingProps, RowColProps {
   style?: any,
   className?: string,
 
@@ -75,15 +78,12 @@ export interface BoxProps extends SpacingProps {
   op?: number,
 }
 
-export type RowColProps = {
-  hCenter?: boolean,
-  vCenter?: boolean,
-}
 
 export type GlobalStyles = {
   pabs: string,
   prel: string,
   
+  flex: string,
   flx: string,
   flx1: string,
   flxRow: string,
@@ -95,7 +95,6 @@ export type GlobalStyles = {
   aic: string,
   ais: string,
   aife: string,
-
 
   jcc: string,
   jcfs: string,
@@ -132,7 +131,7 @@ export type GlobalStyles = {
 
   spacingProps: string,
   boxProps: string,
-	textProps: string,
+  textProps: string,
 
   dimensionProps: string,
 }
@@ -140,7 +139,7 @@ export type GlobalStyles = {
 export type WebGlobalStyles = {
   size: (s: number) => string,
 
-	hideVisually: string, 
+  hideVisually: string, 
   actionable: string, 
   
   unselectable?: string,
@@ -153,9 +152,10 @@ export type WebGlobalStyles = {
   }
 
   media?: {
-    sm: (css: any) => any,
-    md: (css: any) => any,
-    lg: (css: any) => any,
+    sm: any,
+    md: any,
+    lg: any,
+    w: any,
   },
 } 
 

@@ -2,7 +2,8 @@ export const s = {
   pabs:            'position: absolute;',
   prel:            'position: relative;',
 
-	flx:           	'display:flex;',
+	flex:           'display:flex;',
+	flx:           	'display:flex;', // Depracated
   flx1:           'flex: 1; display:flex;',
   flxRow:         'flex-direction: row; display:flex;',
 	flxCol:         'flex-direction: column; display:flex;',

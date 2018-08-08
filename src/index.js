@@ -77,7 +77,8 @@ export const Box = styled(({ tag, children, ...props }) => React.createElement(t
 	${p => p.row ? s.flxRow : '' }
 	${p => p.row && p.hCenter ? s.jcc : '' }
 	${p => p.row && p.vCenter ? s.aic : '' }
-
+	${p => !p.row && p.hCenter ? s.aic : '' }
+	${p => !p.row && p.vCenter ? s.jcc : '' }
 `
 
 const globalStyles = {

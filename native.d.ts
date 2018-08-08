@@ -16,7 +16,7 @@ declare module '@bernatfortet/global-styles/native' {
 
   // declared constants (implementations in JS)
 
-  export const s: types.s
+  export const s: types.GlobalStyles
   export const Box: React.ComponentType<BoxProps & ReactNative.ViewProperties>
   export const Row: React.ComponentType<BoxProps & types.RowColProps & ReactNative.ViewProperties>
   export const Column: React.ComponentType<BoxProps & types.RowColProps & ReactNative.ViewProperties>
