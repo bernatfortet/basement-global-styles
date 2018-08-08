@@ -1,7 +1,7 @@
 export type DimensionProps = {
   w?: string | number,
   h?: string | number,
-  size?: string | number,
+  size?: number,
   minw?: string | number,
   minh?: string | number,
   maxw?: string | number,
