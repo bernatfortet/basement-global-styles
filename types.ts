@@ -1,3 +1,5 @@
+import { Interpolation } from 'styled-components'
+
 export type DimensionProps = {
   w?: string | number,
   h?: string | number,
@@ -144,18 +146,18 @@ export type s = {
 }
 
 export type WebBoxProps = {
-  unselectable: boolean,
-  untouchable: boolean,
-  anim: boolean,
-  mediaDimensions: {
+  unselectable?: Interpolation<any>,
+  untouchable?: Interpolation<any>,
+  anim?: Interpolation<any>,
+  mediaDimensions?: {
     sm: number,
     md: number,
     lg: number,
   }
-  media: {
-    sm: () => void,
-    md: () => void,
-    lg: () => void,
+  media?: {
+    sm: (css: any) => any,
+    md: (css: any) => any,
+    lg: (css: any) => any,
   },
 } 
 

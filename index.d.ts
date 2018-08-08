@@ -1,14 +1,21 @@
 import * as types from './types'
 
-export type DimensionProps = types.DimensionProps
-export type SpacingProps = types.SpacingProps
+declare module '@bernatfortet/global-styles' {
 
-export interface BoxProps extends types.BoxProps, types.WebBoxProps {}
+  // type exports
 
-export type s = types.s
+  type DimensionProps = types.DimensionProps
+  type SpacingProps = types.SpacingProps
 
-export type TextProps = types.TextProps
-export type Box = React.SFC<BoxProps & React.BaseHTMLAttributes<any>>
-export type Row = React.SFC<BoxProps & types.RowColProps & React.BaseHTMLAttributes<any>>
-export type Column = React.SFC<BoxProps & types.RowColProps & React.BaseHTMLAttributes<any>>
+  type BoxProps = types.BoxProps & types.WebBoxProps
 
+  type TextProps = types.TextProps
+
+  // declared constants (implementations in JS)
+
+  const s: types.s & types.WebBoxProps
+  const Box: React.SFC<BoxProps & React.BaseHTMLAttributes<any>>
+  const Row: React.SFC<BoxProps & types.RowColProps & React.BaseHTMLAttributes<any>>
+  const Column: React.SFC<BoxProps & types.RowColProps & React.BaseHTMLAttributes<any>>
+
+}
