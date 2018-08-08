@@ -1,14 +1,24 @@
 import * as React from 'react'
 import * as ReactNative from 'react-native'
+
 import * as types from './types'
 
-export type DimensionProps = types.DimensionProps
-export type SpacingProps = types.SpacingProps
-export type BoxProps = types.BoxProps
-export type s = types.s
+declare module '@bernatfortet/global-styles/native' {
 
-export type TextProps = types.TextProps
+  // type exports
 
-export type Box = React.ComponentType<BoxProps & ReactNative.ViewProperties>
-export type Row = React.ComponentType<BoxProps & types.RowColProps & ReactNative.ViewProperties>
-export type Column = React.ComponentType<BoxProps & types.RowColProps & ReactNative.ViewProperties>
+  type DimensionProps = types.DimensionProps
+  type SpacingProps = types.SpacingProps
+
+  type BoxProps = types.BoxProps
+
+  type TextProps = types.TextProps
+
+  // declared constants (implementations in JS)
+
+  export const s: types.s
+  export const Box: React.ComponentType<BoxProps & ReactNative.ViewProperties>
+  export const Row: React.ComponentType<BoxProps & types.RowColProps & ReactNative.ViewProperties>
+  export const Column: React.ComponentType<BoxProps & types.RowColProps & ReactNative.ViewProperties>
+
+}
