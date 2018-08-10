@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react'
+
 export type DimensionProps = {
   w?: string | number,
   h?: string | number,
@@ -33,7 +35,7 @@ export type RowColProps = {
 }
 
 export interface BoxProps extends SpacingProps, RowColProps {
-  style?: any,
+  style?: CSSProperties,
   className?: string,
 
   jcc?: boolean,
