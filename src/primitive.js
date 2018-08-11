@@ -16,7 +16,7 @@ export const dimensionProps = css`
 export const spacingProps = css`
 	${dimensionProps}
 	${'' /* Margin Props */}
-	${ p => p.m   	? `margin:${p.m}px;` : '' }
+	${ p => p.m   	? `margin:${stringOrNumber(p.m)};` : '' }
 	${ p => p.mh   	? `margin-left:${p.mh}px; margin-right:${p.mh}px;` : '' }
 	${ p => p.mv   	? `margin-top:${p.mv}px; margin-bottom:${p.mv}px;` : '' }
 	${ p => p.mt   	? `margin-top:${p.mt}px;` : '' }
@@ -25,7 +25,7 @@ export const spacingProps = css`
 	${ p => p.ml   	? `margin-left:${p.ml}px;` : '' }
 
 	${'' /* Padding Props */}
-	${ p => p.p   	? `padding:${p.p}px;` : '' }
+	${ p => p.p   	? `padding:${stringOrNumber(p.p)};` : '' }
 	${ p => p.ph   	? `padding-left:${p.ph}px; padding-right:${p.ph}px;` : '' }
 	${ p => p.pv   	? `padding-top:${p.pv}px; padding-bottom:${p.pv}px;` : '' }
 	${ p => p.pt   	? `padding-top:${p.pt}px;` : '' }

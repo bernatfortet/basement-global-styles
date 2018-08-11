@@ -1,3 +1,4 @@
+import * as React from 'react'
 import * as types from './types'
 
 declare module '@bernatfortet/global-styles' {
