@@ -10,7 +10,7 @@ export const dimensionProps = css`
 	${p => p.minh ? `min-height:${stringOrNumber(p.minh)};` : ''}
 	${p => p.maxw ? `max-width:${stringOrNumber(p.maxw)};` : ''}
   ${p => p.maxh ? `max-height:${stringOrNumber(p.maxh)};` : ''}
-	${p => p.size ? `width:${stringOrNumber(p.size)}; height:${stringOrNumber(p.size)};` : ''}
+	${p => p.sz ? `width:${stringOrNumber(p.sz)}; height:${stringOrNumber(p.sz)};` : ''}
   
 `
 export const spacingProps = css`
