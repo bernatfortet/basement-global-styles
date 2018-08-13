@@ -69,7 +69,6 @@ export const boxProps = css`
 	${ p => p.left   	? `left: ${p.left}` : '' }
 	${ p => p.right   ? `right: ${p.right}` : '' }
 
-	${ p => p.wrap 		? s.flxWrap : '' }
 	${ p => p.flxWrap ? s.flxWrap : '' }
 	${ p => p.flex 		? `display:flex; flex:${p.flex};` : '' }
 	${ p => p.order   ? `display:flex; order:${p.order};` : '' }
