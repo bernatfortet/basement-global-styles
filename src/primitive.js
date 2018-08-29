@@ -74,6 +74,7 @@ export const boxProps = css`
 	${ p => p.order   ? `display:flex; order:${p.order};` : '' }
 
 	${ p => p.background	? `background-color:${p.background};` : '' }
+	${ p => p.bg	        ? `background-color:${p.bg};` : '' }
 	${ p => p.color 			? `color:${p.color};` : '' }
   ${ p => p.br 					? `border-radius:${stringOrNumber(p.br)};` : '' }
   
