@@ -71,6 +71,7 @@ export const boxProps = css`
 
 	${ p => p.flxWrap ? s.flxWrap : '' }
 	${ p => p.flex 		? `display:flex; flex:${p.flex};` : '' }
+	${ p => p.flex1   ? `display:flex; flex: 1 1 0%;` : '' }
 	${ p => p.order   ? `display:flex; order:${p.order};` : '' }
 
 	${ p => p.background	? `background-color:${p.background};` : '' }
