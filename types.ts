@@ -70,7 +70,8 @@ export interface BoxProps extends SpacingProps, RowColProps {
   flex1?: boolean,
   order?: number,
 
-  background?: string,
+  background?: string, // depracated
+  bg?: string,
   br?: string | number,
   color?: string,
 
