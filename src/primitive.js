@@ -47,6 +47,7 @@ export const boxProps = css`
 	${ p => p.aic 		? s.aic : '' }
 	${ p => p.aifs 		? s.aifs : '' }
 	${ p => p.aife 		? s.aife : '' }
+	${ p => p.aib 		? s.aib : '' }
 
 	${ p => p.center  ? `${s.aic} ${s.jcc}` : '' }
 

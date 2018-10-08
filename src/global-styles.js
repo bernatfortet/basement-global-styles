@@ -14,6 +14,7 @@ export const s = {
   aic:            'align-items: center; display:flex;',
 	ais:            'align-items: stretch; display:flex;',
   aife:           'align-items: flex-end; display:flex;',
+  aib:            'align-items: baseline; display:flex;',
 
   jcc:            'justify-content: center; display:flex;',
 	jcfs:           'justify-content: flex-start; display:flex;',
