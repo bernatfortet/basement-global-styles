@@ -69,7 +69,7 @@ export interface BoxProps extends SpacingProps, RowColProps {
   flxWrap?: boolean,
   flex?: number | string,
   flex1?: boolean,
-  order?: number,
+  flxOrder?: number,
 
   background?: string, // depracated
   bg?: string,
