@@ -51,6 +51,7 @@ export interface BoxProps extends SpacingProps, RowColProps {
   asfs?: boolean,
   asfe?: boolean,
   asc?: boolean,
+  aib?: boolean,
 
   jss?: boolean,
   jsfs?: boolean,
@@ -177,6 +178,5 @@ export interface TextProps extends SpacingProps {
   op?: number,
   center?: boolean,
   right?: boolean,
-  flex?: number,
   upcase?: boolean,
 }
