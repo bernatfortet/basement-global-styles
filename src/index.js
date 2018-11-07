@@ -75,11 +75,11 @@ export const Box = styled(({ tag, children, ...props }) => React.createElement(t
 	${boxProps}
 	${mediaProps}
 	${p => p.row ? s.flxRow : '' }
-	${p => p.col ? s.flxCol : '' }
+	${p => p.col || p.column ? s.flxCol : '' }
 	${p => p.row && p.hCenter ? s.jcc : '' }
 	${p => p.row && p.vCenter ? s.aic : '' }
-	${p => (!p.row || p.col) && p.hCenter ? s.aic : '' }
-	${p => (!p.row || p.col) && p.vCenter ? s.jcc : '' }
+	${p => (!p.row || p.col || p.column) && p.hCenter ? s.aic : '' }
+	${p => (!p.row || p.col || p.column) && p.vCenter ? s.jcc : '' }
 `
 
 const globalStyles = {

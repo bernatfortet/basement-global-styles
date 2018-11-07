@@ -26,7 +26,7 @@ export const Row = styled(Root)`
 
 export const Box = styled(Root)`
 	${boxProps}
-	${ p => p.column ? s.flxCol : '' }
+	${ p => (p.column || p.col) ? s.flxCol : '' }
 	${ p => p.row ? s.flxRow : '' }
 `
 export const Flex1 = styled(Root)` display:flex; flex:1;`
