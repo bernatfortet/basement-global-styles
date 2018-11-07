@@ -1,6 +1,6 @@
 {
   "name": "@bernatfortet/global-styles",
-  "version": "0.0.266",
+  "version": "0.0.267",
   "description": "Global Styles for styled-components",
   "main": "lib/index.js",
   "repository": {
