@@ -10,7 +10,7 @@
   "scripts": {
     "compile": "babel --presets es2015,stage-0 -d lib/ src/",
     "prepare": "npm run compile && npm version patch",
-    "publish": "npm publish"
+    "release": "npm publish"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
