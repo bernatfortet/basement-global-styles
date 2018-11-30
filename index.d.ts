@@ -1,4 +1,5 @@
 import * as React from 'react'
+
 import * as types from './types'
 
 declare module '@bernatfortet/global-styles' {
@@ -12,11 +13,13 @@ declare module '@bernatfortet/global-styles' {
 
   type TextProps = types.TextProps
 
+  type BaseReactProps = React.BaseHTMLAttributes<HTMLDivElement> & React.ClassAttributes<HTMLDivElement>
+
   // declared constants (implementations in JS)
 
   const s: types.GlobalStyles & types.WebGlobalStyles
-  const Box: React.SFC<BoxProps & React.BaseHTMLAttributes<any>>
-  const Row: React.SFC<BoxProps & types.RowColProps & React.BaseHTMLAttributes<any>>
-  const Column: React.SFC<BoxProps & types.RowColProps & React.BaseHTMLAttributes<any>>
+  const Box: React.SFC<BoxProps & BaseReactProps>
+  const Row: React.SFC<BoxProps & types.RowColProps & BaseReactProps>
+  const Column: React.SFC<BoxProps & types.RowColProps & BaseReactProps>
 
 }

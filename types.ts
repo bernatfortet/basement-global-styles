@@ -37,7 +37,6 @@ export type RowColProps = {
 export interface BoxProps extends SpacingProps, RowColProps {
   style?: CSSProperties,
   className?: string,
-  ref: any,
 
   jcc?: boolean,
   jcsa?: boolean,
