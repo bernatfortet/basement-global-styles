@@ -100,4 +100,4 @@ const globalStyles = {
   mediaDimensions,
 }
 
-export { c, globalStyles as s }
+export { globalStyles as s }
