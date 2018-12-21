@@ -45,7 +45,6 @@ export const s = {
 
   anchor:         'cursor: pointer;',
 
-  full:           'width:100%; height:100%;',
+  full:           'width:100%; height:100%; left:0; top:0; bottom:0; right:0;',
 	ellipsis:       'text-overflow: ellipsis; overflow: hidden; white-space: nowrap;',
-	fixedFull:      'position:fixed; width:100%; height:100%; left:0; top:0; bottom:0; right:0;',
 }

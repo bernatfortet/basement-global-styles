@@ -132,12 +132,10 @@ export type GlobalStyles = {
 
   anchor: string,
 
-  /** width:100%; height:100%; */
+  /** width:100%; height:100%; left:0; top:0; bottom:0; right:0; */
   full: string,
   /** text-overflow: ellipsis; overflow: hidden; white-space: nowrap; */
   ellipsis: string,
-  /** position:fixed; width:100%; height:100%; left:0; top:0; bottom:0; right:0; */
-  fixedFull: string,
 
   spacingProps: string,
   boxProps: string,
