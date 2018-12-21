@@ -4,7 +4,7 @@ export const s = {
 
 	flex:           'display:flex;',
 	flx:           	'display:flex;', // Depracated
-  flx1:           'flex: 1; display:flex;',
+  flex1:          'flex: 1 1 0%; display:flex;',
   flxRow:         'flex-direction: row; display:flex;',
 	flxCol:         'flex-direction: column; display:flex;',
   flxRowReverse:  'flex-direction: row-reverse; display:flex;',

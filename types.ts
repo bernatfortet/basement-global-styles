@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react'
+import { CSSProperties, Ref } from 'react'
 
 export type DimensionProps = {
   w?: string | number,
@@ -37,7 +37,6 @@ export type RowColProps = {
 export interface BoxProps extends SpacingProps, RowColProps {
   style?: CSSProperties,
   className?: string,
-  ref: any,
 
   jcc?: boolean,
   jcsa?: boolean,
@@ -92,7 +91,7 @@ export type GlobalStyles = {
   
   flex: string,
   flx: string,
-  flx1: string,
+  flex1: string,
   flxRow: string,
   flxCol: string,
   flxRowReverse: string,
