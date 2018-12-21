@@ -15,8 +15,8 @@ declare module '@bernatfortet/global-styles' {
   // declared constants (implementations in JS)
 
   const s: types.GlobalStyles & types.WebGlobalStyles
-  const Box: React.SFC<BoxProps & React.BaseHTMLAttributes<any>>
-  const Row: React.SFC<BoxProps & types.RowColProps & React.BaseHTMLAttributes<any>>
-  const Column: React.SFC<BoxProps & types.RowColProps & React.BaseHTMLAttributes<any>>
+  const Box: React.SFC<BoxProps & React.ReactHTMLElement<any>>
+  const Row: React.SFC<BoxProps & types.RowColProps & React.ReactHTMLElement<any>>
+  const Column: React.SFC<BoxProps & types.RowColProps & React.ReactHTMLElement<any>>
 
 }
