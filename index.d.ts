@@ -19,6 +19,7 @@ declare module '@bernatfortet/global-styles' {
   const Row: React.SFC<BoxProps & types.RowColProps & React.BaseHTMLAttributes<any>>
   const Column: React.SFC<BoxProps & types.RowColProps & React.BaseHTMLAttributes<any>>
 
-  const parseUnits: (unit: string | number) => number
+  /** Takes a unit and if its a number it adds px. Otherwise it returns as original string  */
+  const parseUnit: (unit: string | number) => number
 
 }

@@ -21,6 +21,6 @@ declare module '@bernatfortet/global-styles/native' {
   export const Row: React.ComponentType<BoxProps & types.RowColProps & ReactNative.ViewProperties>
   export const Column: React.ComponentType<BoxProps & types.RowColProps & ReactNative.ViewProperties>
 
-  const parseUnits: (unit: string | number) => number
+  const parseUnit: (unit: string | number) => number
 
 }
