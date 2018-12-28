@@ -18,4 +18,7 @@ declare module '@bernatfortet/global-styles' {
   const Box: React.SFC<BoxProps & React.BaseHTMLAttributes<any>>
   const Row: React.SFC<BoxProps & types.RowColProps & React.BaseHTMLAttributes<any>>
   const Column: React.SFC<BoxProps & types.RowColProps & React.BaseHTMLAttributes<any>>
+
+  const parseUnits: (unit: string | number) => number
+
 }
