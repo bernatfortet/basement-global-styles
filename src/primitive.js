@@ -1,22 +1,22 @@
 import styled, { css } from 'styled-components'
 import { s } from './global-styles'
 
-const stringOrNumber = ( input ) => typeof input == 'number' ? input+'px' : input
+import { parseUnit } from './utils'
 
 export const dimensionProps = css`
-	${p => p.w ? `width:${stringOrNumber(p.w)};` : ''}
-	${p => p.h ? `height:${stringOrNumber(p.h)};` : ''}
-	${p => p.minw ? `min-width:${stringOrNumber(p.minw)};` : ''}
-	${p => p.minh ? `min-height:${stringOrNumber(p.minh)};` : ''}
-	${p => p.maxw ? `max-width:${stringOrNumber(p.maxw)};` : ''}
-  ${p => p.maxh ? `max-height:${stringOrNumber(p.maxh)};` : ''}
-	${p => p.sz ? `width:${stringOrNumber(p.sz)}; height:${stringOrNumber(p.sz)};` : ''}
+	${p => p.w ? `width:${parseUnit(p.w)};` : ''}
+	${p => p.h ? `height:${parseUnit(p.h)};` : ''}
+	${p => p.minw ? `min-width:${parseUnit(p.minw)};` : ''}
+	${p => p.minh ? `min-height:${parseUnit(p.minh)};` : ''}
+	${p => p.maxw ? `max-width:${parseUnit(p.maxw)};` : ''}
+  ${p => p.maxh ? `max-height:${parseUnit(p.maxh)};` : ''}
+	${p => p.sz ? `width:${parseUnit(p.sz)}; height:${parseUnit(p.sz)};` : ''}
   
 `
 export const spacingProps = css`
 	${dimensionProps}
 	${'' /* Margin Props */}
-	${ p => p.m   	? `margin:${stringOrNumber(p.m)};` : '' }
+	${ p => p.m   	? `margin:${parseUnit(p.m)};` : '' }
 	${ p => p.mh   	? `margin-left:${p.mh}px; margin-right:${p.mh}px;` : '' }
 	${ p => p.mv   	? `margin-top:${p.mv}px; margin-bottom:${p.mv}px;` : '' }
 	${ p => p.mt   	? `margin-top:${p.mt}px;` : '' }
@@ -25,7 +25,7 @@ export const spacingProps = css`
 	${ p => p.ml   	? `margin-left:${p.ml}px;` : '' }
 
 	${'' /* Padding Props */}
-	${ p => p.p   	? `padding:${stringOrNumber(p.p)};` : '' }
+	${ p => p.p   	? `padding:${parseUnit(p.p)};` : '' }
 	${ p => p.ph   	? `padding-left:${p.ph}px; padding-right:${p.ph}px;` : '' }
 	${ p => p.pv   	? `padding-top:${p.pv}px; padding-bottom:${p.pv}px;` : '' }
 	${ p => p.pt   	? `padding-top:${p.pt}px;` : '' }
@@ -78,7 +78,7 @@ export const boxProps = css`
 	${ p => p.background	? `background-color:${p.background};` : '' }
 	${ p => p.bg	        ? `background-color:${p.bg};` : '' }
 	${ p => p.color 			? `color:${p.color};` : '' }
-  ${ p => p.br 					? `border-radius:${stringOrNumber(p.br)};` : '' }
+  ${ p => p.br 					? `border-radius:${parseUnit(p.br)};` : '' }
   
 	${p => p.opacity ? `opacity:${p.opacity};` : ''}
   ${p => p.op ? `opacity:${p.op};` : ''}

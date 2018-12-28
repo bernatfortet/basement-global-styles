@@ -101,3 +101,6 @@ const globalStyles = {
 }
 
 export { globalStyles as s }
+
+// Exported Utils
+export { parseUnit } from './primitive'
