@@ -42,4 +42,6 @@ const globalStyles = {
 
 // Helpers
 
-export { c, globalStyles as s }
+export { globalStyles as s }
+// Exported Utils
+export { parseUnit } from './utils'
