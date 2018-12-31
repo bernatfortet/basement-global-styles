@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 
 import { s } from './global-styles'
 import { boxProps, dimensionProps, spacingProps, textProps } from './primitive'
+import { MediaProps } from '../types/types';
 
 const Root = styled.div``
 
@@ -25,61 +26,40 @@ const mediaDimensions = {
 }
 
 const media = {
-	sm: (...args) => css`
+  sm: (...args: any ) => css`
     @media (max-width: ${mediaDimensions.sm}px) {
-      ${ css(...args) }
+      ${ css(args) }
     }
   `,
-	md: (...args) => css`
+	md: (...args: any) => css`
     @media (max-width: ${mediaDimensions.md}px) {
-      ${ css(...args) }
+      ${ css(args) }
     }
   `,
-	lg: (...args) => css`
+	lg: (...args: any) => css`
     @media (max-width: ${mediaDimensions.lg}px) {
-      ${ css(...args) }
+      ${ css(args) }
     }
   `,
-	w: ( width, ...args) => css`
+	w: ( width, ...args: any) => css`
     @media (max-width: ${width}px) {
-      ${ css(...args) }
+      ${ css(args) }
     }
   `
 }
 
-export const mediaProps = css`
+export const mediaProps = css<MediaProps>`
 	${'' /* Media Props */}
 	${p => p.smHide ? media.sm` ${hideVisually}` : '' }
 	${p => p.mdHide ? media.md` ${hideVisually}` : '' }
 	${p => p.lgHide ? media.lg` ${hideVisually}` : '' }
-
-	${ p => p.if 		? s.if : '' }
 `
 
-export const Column = styled(Root)`
-  ${p => p.hCenter ? s.aic : '' }
-  ${p => p.vCenter ? s.jcc : '' }
-	${mediaProps}
-	${boxProps}
-	${s.flxCol}
-`
-export const Row = styled(Root)`
-  ${p => p.hCenter ? s.jcc : '' }
-	${p => p.vCenter ? s.aic : '' }
-	${mediaProps}
-	${boxProps}
-	${s.flxRow}
-`
-export const Box = styled(({ tag, children, ...props }) => React.createElement(tag ? tag : Root, props, children))`
-	${boxProps}
-	${mediaProps}
-	${p => p.row ? s.flxRow : '' }
-	${p => p.col || p.column ? s.flxCol : '' }
-	${p => p.row && p.hCenter ? s.jcc : '' }
-	${p => p.row && p.vCenter ? s.aic : '' }
-	${p => (!p.row || p.col || p.column) && p.hCenter ? s.aic : '' }
-	${p => (!p.row || p.col || p.column) && p.vCenter ? s.jcc : '' }
-`
+export const Column = styled(Root)` ${mediaProps} ${boxProps} ${s.flxCol} `
+
+export const Row = styled(Root)` ${mediaProps} ${boxProps} ${s.flxRow} `
+
+export const Box = styled(Root)` ${mediaProps} ${boxProps}`
 
 const globalStyles = {
 	...s,

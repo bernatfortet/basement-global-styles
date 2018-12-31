@@ -28,60 +28,73 @@ export interface SpacingProps extends DimensionProps {
   pl?: number,
 }
 
+export type FlexProps = {
+  jcc?: boolean
+  jcsa?: boolean
+  jcsb?: boolean
+  jcfs?: boolean
+  jcfe?: boolean
+
+  aic?: boolean
+  aifs?: boolean
+  aife?: boolean
+  ass?: boolean
+  asfs?: boolean
+  asfe?: boolean
+  asc?: boolean
+  aib?: boolean
+
+  jss?: boolean
+  jsfs?: boolean
+  jsfe?: boolean
+  jsc?: boolean
+
+  row?: boolean
+  column?: boolean
+  col?: boolean
+  
+  vCenter?: boolean
+  hCenter?: boolean
+
+  center?: boolean
+
+  flxWrap?: boolean
+  flex?: number | string
+  flex1?: boolean
+  flxOrder?: number
+}
 
 export type RowColProps = {
   hCenter?: boolean,
   vCenter?: boolean,
 }
 
-export interface BoxProps extends SpacingProps, RowColProps {
-  style?: CSSProperties,
-  className?: string,
-
-  jcc?: boolean,
-  jcsa?: boolean,
-  jcsb?: boolean,
-  jcfs?: boolean,
-  jcfe?: boolean,
-
-  aic?: boolean,
-  aifs?: boolean,
-  aife?: boolean,
-  ass?: boolean,
-  asfs?: boolean,
-  asfe?: boolean,
-  asc?: boolean,
-  aib?: boolean,
-
-  jss?: boolean,
-  jsfs?: boolean,
-  jsfe?: boolean,
-  jsc?: boolean,
-
-  center?: boolean,
-
+export type PositionProps = {
   pabs?: boolean,
   prel?: boolean,
   pfix?: boolean,
 
-  row?: boolean,
-  column?: boolean,
-  col?: boolean,
+  top?: number | string,
+  botttom?: number | string,
+  left?: number | string,
+  right?: number | string,
+}
 
-  flxWrap?: boolean,
-  flex?: number | string,
-  flex1?: boolean,
-  flxOrder?: number,
-
+export type AppearanceProps = {
   background?: string, // depracated
   bg?: string,
   br?: string | number,
   color?: string,
 
-  tag?: any
-
   opacity?: number,
   op?: number,
+}
+
+export interface BoxProps extends SpacingProps, RowColProps {
+  style?: CSSProperties,
+  className?: string,
+  center?: boolean,
+  tag?: any
 }
 
 
@@ -167,20 +180,66 @@ export type WebGlobalStyles = {
   },
 } 
 
+
+
 export type MediaProps = {
   smHide?: boolean,
   mdHide?: boolean,
   lgHide?: boolean,
 } 
 
-export interface TextProps extends SpacingProps {
-  bold?: boolean,
+export interface TextProps {
+
+  fs?: number | string,
+
+  // Font Weight ---
+  /** Font Weight: 300 */
+  light?: boolean,
+
+  /** Font Weight: 400 */
+  regular?: boolean,
+
+  /** Font Weight: 500 */
+  medium?: boolean,
+
+  /** Font Weight: 600 */
   semi?: boolean,
-  color?: string,
-  lh?: number,
-  opacity?: number,
-  op?: number,
+
+  /** Font Weight: 700 */
+  bold?: boolean,
+
+  /** Font Weight: 800 */
+  black?: boolean,
+
+  /** Font Weight */
+  weight?: number | string,
+
+
+  // Alignment ---
+
+  /** text-align: center => Depracated, use tac */
   center?: boolean,
+
+  /** text-align: right => Depracated, use tar  */
   right?: boolean,
+
+  /** text-align: left */
+  tal?: boolean,
+
+  /** text-align: right */
+  tar?: boolean,
+
+  /** text-align: center */
+  tac?: boolean,
+
+
+  // Other --- 
+  /** Line height */
+  lh?: number | string,
+
+  /** Letter Spacing */
+  ls?: number | string,
+
+  /** text-transform: uppercase */
   upcase?: boolean,
 }
