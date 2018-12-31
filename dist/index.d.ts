@@ -1,29 +1,23 @@
-export declare const mediaProps: any;
 export declare const Column: any;
 export declare const Row: any;
 export declare const Box: any;
 declare const globalStyles: {
-    size: (size: any) => string;
+    size: (size: number) => string;
     anim: any;
     media: {
-        sm: (...args: any) => any;
-        md: (...args: any) => any;
-        lg: (...args: any) => any;
-        w: (width: any, ...args: any) => any;
+        sm: string;
+        md: string;
+        lg: string;
+        xlg: string;
     };
-    hideVisually: any;
     unselectable: any;
     untouchable: any;
     actionable: any;
     boxProps: any;
-    spacingProps: any;
+    spacingProps: (props: import("./types").SpacingProps) => any[];
     textProps: any;
     dimensionProps: any;
-    mediaDimensions: {
-        sm: number;
-        md: number;
-        lg: number;
-    };
+    breakpoints: number[];
     pabs: string;
     prel: string;
     flex: string;

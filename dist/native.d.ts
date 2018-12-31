@@ -5,7 +5,7 @@ export declare const Flex1: any;
 export declare const Spacer: any;
 declare const globalStyles: {
     boxProps: any;
-    spacingProps: any;
+    spacingProps: (props: import("./types").SpacingProps) => any[];
     textProps: any;
     dimensionProps: any;
     pabs: string;

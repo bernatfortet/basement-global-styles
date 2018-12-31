@@ -1,39 +1,84 @@
 import styled, { css } from 'styled-components'
 import { s } from './global-styles'
 
-import { parseUnit } from './utils'
+import { parseUnit, createMediaQuery, is } from './utils'
 import { BoxProps, SpacingProps, DimensionProps, PositionProps, AppearanceProps, FlexProps, TextProps } from './types'
 
+const defaultBreakpoints = [576, 768, 992, 1200]
+
+
 export const dimensionProps = css<DimensionProps>`
+  ${p => p.display ? `display:${p.display};` : ''}
+  
 	${p => p.w ? `width:${parseUnit(p.w)};` : ''}
 	${p => p.h ? `height:${parseUnit(p.h)};` : ''}
 	${p => p.minw ? `min-width:${parseUnit(p.minw)};` : ''}
 	${p => p.minh ? `min-height:${parseUnit(p.minh)};` : ''}
 	${p => p.maxw ? `max-width:${parseUnit(p.maxw)};` : ''}
   ${p => p.maxh ? `max-height:${parseUnit(p.maxh)};` : ''}
-	${p => p.sz ? `width:${parseUnit(p.sz)}; height:${parseUnit(p.sz)};` : ''}
-  
-`
-export const spacingProps = css<SpacingProps>`
-	${dimensionProps}
-	${'' /* Margin Props */}
-	${ p => p.m   	? `margin:${parseUnit(p.m)};` : '' }
-	${ p => p.mh   	? `margin-left:${p.mh}px; margin-right:${p.mh}px;` : '' }
-	${ p => p.mv   	? `margin-top:${p.mv}px; margin-bottom:${p.mv}px;` : '' }
-	${ p => p.mt   	? `margin-top:${p.mt}px;` : '' }
-	${ p => p.mr   	? `margin-right:${p.mr}px;` : '' }
-	${ p => p.mb   	? `margin-bottom:${p.mb}px;` : '' }
-	${ p => p.ml   	? `margin-left:${p.ml}px;` : '' }
 
-	${'' /* Padding Props */}
-	${ p => p.p   	? `padding:${parseUnit(p.p)};` : '' }
-	${ p => p.ph   	? `padding-left:${p.ph}px; padding-right:${p.ph}px;` : '' }
-	${ p => p.pv   	? `padding-top:${p.pv}px; padding-bottom:${p.pv}px;` : '' }
-	${ p => p.pt   	? `padding-top:${p.pt}px;` : '' }
-	${ p => p.pr   	? `padding-right:${p.pr}px;` : '' }
-	${ p => p.pb   	? `padding-bottom:${p.pb}px;` : '' }
-	${ p => p.pl   	? `padding-left:${p.pl}px;` : '' }
+	${p => p.sz ? `width:${parseUnit(p.sz)}; height:${parseUnit(p.sz)};` : ''}
 `
+
+// Spacing Properties
+const REG = /^[mp][trblhv]?$/
+const properties: { [key: string]: string } = {
+  m: 'margin',
+  p: 'padding'
+}
+const directions: { [key: string]: string | string[] } = {
+  t: 'Top',
+  r: 'Right',
+  b: 'Bottom',
+  l: 'Left',
+  h: ['Top', 'Bottom'],
+  v: ['Left', 'Right'],
+}
+
+const getSpaceStyleName = (key: string) => {
+  const [a, b] = key.split('')
+  const property = properties[a]
+  const direction = directions[b] || ''
+
+  return Array.isArray(direction)
+    ? direction.map(dir => property + dir)
+    : [property + direction]
+}
+
+export const spacingProps = (props: SpacingProps) => {
+  const keys = Object.keys(props)
+  .filter(key => REG.test(key))
+  
+  return keys.map(key => {
+    const value = props[key]
+    const styleNames = getSpaceStyleName(key)
+    
+    const style = (n: any) => is(n) ? styleNames.reduce((a, prop) => ({
+      ...a,
+      [prop]: parseUnit(n)
+    }), {}) : null
+    
+    if (!Array.isArray(value)) {
+      return style(value)
+    }
+    
+    let styles: any = {}
+
+    const breakpoints = [null, ...defaultBreakpoints.map(createMediaQuery)]
+    
+    for (let i = 0; i < value.length; i++) {
+      const media = breakpoints[i]
+      if (!media) {
+        styles = style(value[i]) || {}
+        continue
+      }
+      const rule = style(value[i])
+      if (!rule) continue
+      styles[media] = rule
+    }
+    return styles
+  })
+}
 
 export const flexProps = css<FlexProps>`
 	${ p => p.jcc ? s.jcc : ''}
@@ -83,7 +128,9 @@ export const positionProps = css<PositionProps>`
 	${ p => p.top ? `top: ${parseUnit(p.top)};` : ''}
 	${ p => p.botttom ? `botttom: ${parseUnit(p.botttom)};` : ''}
 	${ p => p.left ? `left: ${parseUnit(p.left)};` : ''}
-	${ p => p.right ? `right: ${parseUnit(p.right)};` : '' }
+  ${ p => p.right ? `right: ${parseUnit(p.right)};` : '' }
+  
+  ${ p => p.zi ? `z-index: ${p.zi};` : '' }
 `
 
 export const appearanceProps = css<AppearanceProps>`

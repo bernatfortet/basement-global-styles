@@ -10,7 +10,7 @@ export type DimensionProps = {
   maxh?: string | number,
 }
 
-export interface SpacingProps extends DimensionProps {
+export interface SpacingProps{
   m?: number | string,
   mh?: number,
   mv?: number,
@@ -70,23 +70,35 @@ export type RowColProps = {
 }
 
 export type PositionProps = {
+  /** position: absolute */
   pabs?: boolean,
+  /** position: relative */
   prel?: boolean,
+  /** position: fixed */
   pfix?: boolean,
 
   top?: number | string,
   botttom?: number | string,
   left?: number | string,
   right?: number | string,
+
+  /** z-index */
+  zi?: number,
 }
 
 export type AppearanceProps = {
-  background?: string, // depracated
+/** background-color => Depracated, use bg */
+  background?: string,
+  /** background-color:  */
   bg?: string,
+  /** border-radius: 50% | 8 */
   br?: string | number,
+  
   color?: string,
 
+  /** opacity => Depracted, use op  */
   opacity?: number,
+  /** opacity  */
   op?: number,
 }
 
