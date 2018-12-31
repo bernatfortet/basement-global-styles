@@ -149,12 +149,6 @@ export type GlobalStyles = {
   full: string,
   /** text-overflow: ellipsis; overflow: hidden; white-space: nowrap; */
   ellipsis: string,
-
-  spacingProps: string,
-  boxProps: string,
-  textProps: string,
-
-  dimensionProps: string,
 }
 
 export type WebGlobalStyles = {

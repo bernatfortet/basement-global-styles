@@ -14,17 +14,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
-            t[p[i]] = s[p[i]];
-    return t;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = require("react");
 var styled_components_1 = require("styled-components");
 var global_styles_1 = require("./global-styles");
 var primitive_1 = require("./primitive");
@@ -46,37 +36,34 @@ var media = {
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        return styled_components_1.css(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "], ["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "])), mediaDimensions.sm, styled_components_1.css.apply(void 0, args));
+        return styled_components_1.css(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "], ["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "])), mediaDimensions.sm, styled_components_1.css(args));
     },
     md: function () {
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        return styled_components_1.css(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "], ["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "])), mediaDimensions.md, styled_components_1.css.apply(void 0, args));
+        return styled_components_1.css(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "], ["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "])), mediaDimensions.md, styled_components_1.css(args));
     },
     lg: function () {
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        return styled_components_1.css(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "], ["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "])), mediaDimensions.lg, styled_components_1.css.apply(void 0, args));
+        return styled_components_1.css(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "], ["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "])), mediaDimensions.lg, styled_components_1.css(args));
     },
     w: function (width) {
         var args = [];
         for (var _i = 1; _i < arguments.length; _i++) {
             args[_i - 1] = arguments[_i];
         }
-        return styled_components_1.css(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "], ["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "])), width, styled_components_1.css.apply(void 0, args));
+        return styled_components_1.css(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "], ["\n    @media (max-width: ", "px) {\n      ", "\n    }\n  "])), width, styled_components_1.css(args));
     }
 };
-exports.mediaProps = styled_components_1.css(templateObject_14 || (templateObject_14 = __makeTemplateObject(["\n\t", "\n\t", "\n\t", "\n\t", "\n\n\t", "\n"], ["\n\t", /* Media Props */ "\n\t", "\n\t", "\n\t", "\n\n\t", "\n"])), '' /* Media Props */, function (p) { return p.smHide ? media.sm(templateObject_11 || (templateObject_11 = __makeTemplateObject([" ", ""], [" ", ""])), hideVisually) : ''; }, function (p) { return p.mdHide ? media.md(templateObject_12 || (templateObject_12 = __makeTemplateObject([" ", ""], [" ", ""])), hideVisually) : ''; }, function (p) { return p.lgHide ? media.lg(templateObject_13 || (templateObject_13 = __makeTemplateObject([" ", ""], [" ", ""])), hideVisually) : ''; }, function (p) { return p.if ? global_styles_1.s.if : ''; });
-exports.Column = styled_components_1.default(Root)(templateObject_15 || (templateObject_15 = __makeTemplateObject(["\n  ", "\n  ", "\n\t", "\n\t", "\n\t", "\n"], ["\n  ", "\n  ", "\n\t", "\n\t", "\n\t", "\n"])), function (p) { return p.hCenter ? global_styles_1.s.aic : ''; }, function (p) { return p.vCenter ? global_styles_1.s.jcc : ''; }, exports.mediaProps, primitive_1.boxProps, global_styles_1.s.flxCol);
-exports.Row = styled_components_1.default(Root)(templateObject_16 || (templateObject_16 = __makeTemplateObject(["\n  ", "\n\t", "\n\t", "\n\t", "\n\t", "\n"], ["\n  ", "\n\t", "\n\t", "\n\t", "\n\t", "\n"])), function (p) { return p.hCenter ? global_styles_1.s.jcc : ''; }, function (p) { return p.vCenter ? global_styles_1.s.aic : ''; }, exports.mediaProps, primitive_1.boxProps, global_styles_1.s.flxRow);
-exports.Box = styled_components_1.default(function (_a) {
-    var tag = _a.tag, children = _a.children, props = __rest(_a, ["tag", "children"]);
-    return react_1.default.createElement(tag ? tag : Root, props, children);
-})(templateObject_17 || (templateObject_17 = __makeTemplateObject(["\n\t", "\n\t", "\n\t", "\n\t", "\n\t", "\n\t", "\n\t", "\n\t", "\n"], ["\n\t", "\n\t", "\n\t", "\n\t", "\n\t", "\n\t", "\n\t", "\n\t", "\n"])), primitive_1.boxProps, exports.mediaProps, function (p) { return p.row ? global_styles_1.s.flxRow : ''; }, function (p) { return p.col || p.column ? global_styles_1.s.flxCol : ''; }, function (p) { return p.row && p.hCenter ? global_styles_1.s.jcc : ''; }, function (p) { return p.row && p.vCenter ? global_styles_1.s.aic : ''; }, function (p) { return (!p.row || p.col || p.column) && p.hCenter ? global_styles_1.s.aic : ''; }, function (p) { return (!p.row || p.col || p.column) && p.vCenter ? global_styles_1.s.jcc : ''; });
+exports.mediaProps = styled_components_1.css(templateObject_14 || (templateObject_14 = __makeTemplateObject(["\n\t", "\n\t", "\n\t", "\n\t", "\n"], ["\n\t", /* Media Props */ "\n\t", "\n\t", "\n\t", "\n"])), '' /* Media Props */, function (p) { return p.smHide ? media.sm(templateObject_11 || (templateObject_11 = __makeTemplateObject([" ", ""], [" ", ""])), hideVisually) : ''; }, function (p) { return p.mdHide ? media.md(templateObject_12 || (templateObject_12 = __makeTemplateObject([" ", ""], [" ", ""])), hideVisually) : ''; }, function (p) { return p.lgHide ? media.lg(templateObject_13 || (templateObject_13 = __makeTemplateObject([" ", ""], [" ", ""])), hideVisually) : ''; });
+exports.Column = styled_components_1.default(Root)(templateObject_15 || (templateObject_15 = __makeTemplateObject([" ", " ", " ", " "], [" ", " ", " ", " "])), exports.mediaProps, primitive_1.boxProps, global_styles_1.s.flxCol);
+exports.Row = styled_components_1.default(Root)(templateObject_16 || (templateObject_16 = __makeTemplateObject([" ", " ", " ", " "], [" ", " ", " ", " "])), exports.mediaProps, primitive_1.boxProps, global_styles_1.s.flxRow);
+exports.Box = styled_components_1.default(Root)(templateObject_17 || (templateObject_17 = __makeTemplateObject([" ", " ", ""], [" ", " ", ""])), exports.mediaProps, primitive_1.boxProps);
 var globalStyles = __assign({}, global_styles_1.s, { size: size,
     anim: anim,
     media: media,

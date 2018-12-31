@@ -1,4 +1,6 @@
-export const s = {
+import { GlobalStyles } from "./types";
+
+export const s: GlobalStyles = {
   pabs:            'position: absolute;',
   prel:            'position: relative;',
 

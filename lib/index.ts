@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 
 import { s } from './global-styles'
 import { boxProps, dimensionProps, spacingProps, textProps } from './primitive'
-import { MediaProps } from '../types/types';
+import { MediaProps } from './types';
 
 const Root = styled.div``
 

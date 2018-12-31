@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { s } from './global-styles'
 
 import { parseUnit } from './utils'
-import { BoxProps, SpacingProps, DimensionProps, PositionProps, AppearanceProps, FlexProps, TextProps } from '../types/types'
+import { BoxProps, SpacingProps, DimensionProps, PositionProps, AppearanceProps, FlexProps, TextProps } from './types'
 
 export const dimensionProps = css<DimensionProps>`
 	${p => p.w ? `width:${parseUnit(p.w)};` : ''}

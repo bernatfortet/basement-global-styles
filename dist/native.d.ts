@@ -1,13 +1,13 @@
-export declare const Column: import("styled-components").StyledComponentClass<{}, any, any>;
-export declare const Row: import("styled-components").StyledComponentClass<{}, any, any>;
-export declare const Box: import("styled-components").StyledComponentClass<{}, any, any>;
-export declare const Flex1: import("styled-components").StyledComponentClass<{}, any, any>;
-export declare const Spacer: import("styled-components").StyledComponentClass<{}, any, any>;
+export declare const Column: any;
+export declare const Row: any;
+export declare const Box: any;
+export declare const Flex1: any;
+export declare const Spacer: any;
 declare const globalStyles: {
-    boxProps: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>[];
-    spacingProps: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>[];
-    textProps: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>[];
-    dimensionProps: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>[];
+    boxProps: any;
+    spacingProps: any;
+    textProps: any;
+    dimensionProps: any;
     pabs: string;
     prel: string;
     flex: string;

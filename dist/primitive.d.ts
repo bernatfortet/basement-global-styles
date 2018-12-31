@@ -1,4 +1,7 @@
-export declare const dimensionProps: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>[];
-export declare const spacingProps: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>[];
-export declare const boxProps: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>[];
-export declare const textProps: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>[];
+export declare const dimensionProps: any;
+export declare const spacingProps: any;
+export declare const flexProps: any;
+export declare const positionProps: any;
+export declare const appearanceProps: any;
+export declare const textProps: any;
+export declare const boxProps: any;

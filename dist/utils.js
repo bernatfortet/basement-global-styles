@@ -2,3 +2,4 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.num = function (n) { return typeof n === 'number' && !isNaN(n); };
 exports.parseUnit = function (n) { return exports.num(n) ? n + 'px' : n; };
+exports.createMediaQuery = function (n) { return "@media screen and (min-width: " + exports.parseUnit(n) + ")"; };

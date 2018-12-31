@@ -1,27 +1,24 @@
-import React from 'react';
-export declare const mediaProps: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>[];
-export declare const Column: import("styled-components").StyledComponentClass<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, any, React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>>;
-export declare const Row: import("styled-components").StyledComponentClass<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, any, React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>>;
-export declare const Box: import("styled-components").StyledComponentClass<{}, any, Pick<{}, never> & {
-    theme?: any;
-}>;
+export declare const mediaProps: any;
+export declare const Column: any;
+export declare const Row: any;
+export declare const Box: any;
 declare const globalStyles: {
     size: (size: any) => string;
-    anim: import("styled-components").InterpolationValue[];
+    anim: any;
     media: {
-        sm: (...args: any[]) => import("styled-components").InterpolationValue[];
-        md: (...args: any[]) => import("styled-components").InterpolationValue[];
-        lg: (...args: any[]) => import("styled-components").InterpolationValue[];
-        w: (width: any, ...args: any[]) => import("styled-components").InterpolationValue[];
+        sm: (...args: any) => any;
+        md: (...args: any) => any;
+        lg: (...args: any) => any;
+        w: (width: any, ...args: any) => any;
     };
-    hideVisually: import("styled-components").InterpolationValue[];
-    unselectable: import("styled-components").InterpolationValue[];
-    untouchable: import("styled-components").InterpolationValue[];
-    actionable: import("styled-components").InterpolationValue[];
-    boxProps: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>[];
-    spacingProps: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>[];
-    textProps: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>[];
-    dimensionProps: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>[];
+    hideVisually: any;
+    unselectable: any;
+    untouchable: any;
+    actionable: any;
+    boxProps: any;
+    spacingProps: any;
+    textProps: any;
+    dimensionProps: any;
     mediaDimensions: {
         sm: number;
         md: number;
