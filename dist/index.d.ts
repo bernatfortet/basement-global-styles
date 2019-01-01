@@ -1,3 +1,4 @@
+import * as types from './types';
 export declare const Column: any;
 export declare const Row: any;
 export declare const Box: any;
@@ -14,7 +15,7 @@ declare const globalStyles: {
     untouchable: any;
     actionable: any;
     boxProps: any;
-    spacingProps: (props: import("./types").SpacingProps) => any[];
+    spacingProps: (props: types.SpacingProps) => any[];
     textProps: any;
     dimensionProps: any;
     breakpoints: number[];
@@ -59,3 +60,4 @@ declare const globalStyles: {
 };
 export { globalStyles as s };
 export { parseUnit } from './utils';
+export declare type BoxProps = types.BoxProps & types.MediaProps;

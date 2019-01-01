@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled, { css } from 'styled-components'
 
-import { Box, s } from '@bernatfortet/global-styles'
+import { Column, Row, Box, s } from '@bernatfortet/global-styles'
 
 
 
@@ -11,9 +11,10 @@ type Props = {
 const App: React.SFC<Props> = (props: Props) => {
   const {} = props
   return(
-    <Test bg='black' color='white' p={[20, 60]} mh={200} >
-      App
-    </Test>
+    <Row>
+      <Box m={[20, 200]}>asdf</Box>
+      <Box m={[20, 200]}>asdf</Box>
+    </Row>
   )
 }
 
