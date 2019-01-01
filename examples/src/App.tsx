@@ -11,7 +11,7 @@ type Props = {
 const App: React.SFC<Props> = (props: Props) => {
   const {} = props
   return(
-    <Row>
+    <Row vCenter className='links'>
       <Box m={[20, 200]}>asdf</Box>
       <Box m={[20, 200]}>asdf</Box>
     </Row>

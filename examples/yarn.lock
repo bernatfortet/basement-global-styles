@@ -871,8 +871,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@bernatfortet/global-styles@../dist":
-  version "0.0.0"
+"@bernatfortet/global-styles@^0.0.416":
+  version "0.0.416"
+  resolved "https://registry.yarnpkg.com/@bernatfortet/global-styles/-/global-styles-0.0.416.tgz#b42ce661158932c756b761072f4f9d7b36da10b7"
+  integrity sha512-f+0iGUsCYMZTpdkNtakAPQX/Wkh7XrWWF4LBn5/gOLkUVr1UO5C7Lito+sN6eBZbrLXdfSr6Cxhas7CVv6libw==
 
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
@@ -4226,13 +4228,6 @@ global-prefix@^1.0.1:
     ini "^1.3.4"
     is-windows "^1.0.1"
     which "^1.2.14"
-
-global-styles@../:
-  version "0.0.412"
-  dependencies:
-    "@types/node" "^10.12.18"
-    "@types/react-dom" "^16.0.11"
-    typescript "^3.2.2"
 
 globals@^11.1.0, globals@^11.7.0:
   version "11.8.0"
