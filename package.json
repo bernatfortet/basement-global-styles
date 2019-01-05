@@ -28,5 +28,8 @@
     "url": "https://github.com/bernatfortet/basement-global-styles/issues"
   },
   "homepage": "https://github.com/bernatfortet/basement-global-styles#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
 }
