@@ -20,7 +20,7 @@ export type SpacingProps = {
   mr?: number,
   mb?: number,
   ml?: number,
-
+  
   p?: number | string,
   ph?: number,
   pv?: number,
@@ -54,7 +54,7 @@ export type FlexProps = {
   row?: boolean
   column?: boolean
   col?: boolean
-
+  
   vCenter?: boolean
   hCenter?: boolean
 
@@ -89,13 +89,13 @@ export type PositionProps = {
 }
 
 export type AppearanceProps = {
-  /** background-color => Depracated, use bg */
+/** background-color => Depracated, use bg */
   background?: string,
   /** background-color:  */
   bg?: string,
   /** border-radius: 50% | 8 */
   br?: string | number,
-
+  
   color?: string,
 
   /** opacity => Depracted, use op  */
@@ -113,7 +113,7 @@ export interface BoxProps extends SpacingProps, RowColProps {
 export type GlobalStyles = {
   pabs: string,
   prel: string,
-
+  
   flex: string,
   flx: string,
   flex1: string,
@@ -166,9 +166,9 @@ export type GlobalStyles = {
 export type WebGlobalStyles = {
   size: (s: number) => string,
 
-  hideVisually: string,
-  actionable: string,
-
+  hideVisually: string, 
+  actionable: string, 
+  
   unselectable?: string,
   untouchable?: string,
   anim?: string,
@@ -184,7 +184,7 @@ export type WebGlobalStyles = {
     lg: any,
     w: any,
   },
-}
+} 
 
 
 
@@ -192,7 +192,7 @@ export type MediaProps = {
   smHide?: boolean,
   mdHide?: boolean,
   lgHide?: boolean,
-}
+} 
 
 export interface TextProps {
 

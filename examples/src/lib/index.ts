@@ -18,7 +18,7 @@ const unselectable = css` user-select:none; & * { user-select:none; } `
 const untouchable = css` ${unselectable} pointer-events:none; & * { pointer-events:none; }  `
 const actionable = css` ${unselectable} cursor:pointer;  `
 
-const mediaQueries = defaultBreakpoints.map(unit => createMediaQuery(unit))
+const mediaQueries = defaultBreakpoints.map( unit => createMediaQuery(unit) )
 
 const media = {
   sm: mediaQueries[0],
@@ -34,21 +34,21 @@ export const Row = styled(Root).attrs({ row: true })` ${boxProps} `
 export const Box = styled(Root)` ${boxProps}`
 
 const globalStyles = {
-  ...s,
+	...s,
 
-  size,
-  anim,
-  media,
-  unselectable,
-  untouchable,
-  actionable,
+	size,
+	anim,
+	media,
+	unselectable,
+	untouchable,
+	actionable,
 
   dimensionProps,
   spacingProps,
   flexProps,
   positionProps,
   appearanceProps,
-
+  
   breakpoints: defaultBreakpoints,
 }
 

@@ -3,8 +3,8 @@ import { View } from 'react-native'
 
 import styled from 'styled-components'
 
-import { s } from './global-styles'
-import { boxProps, dimensionProps, spacingProps, textProps } from './primitive'
+import { s } from '../global-styles'
+import { boxProps, dimensionProps, spacingProps, textProps } from '../primitive'
 
 
 const Root = styled(View)``
@@ -36,4 +36,4 @@ const globalStyles = {
 
 export { globalStyles as s }
 // Exported Utils
-export { parseUnit } from './utils'
+export { parseUnit } from '../utils'
