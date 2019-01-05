@@ -32,8 +32,8 @@ const directions: { [key: string]: string | string[] } = {
   r: 'Right',
   b: 'Bottom',
   l: 'Left',
-  h: ['Top', 'Bottom'],
-  v: ['Left', 'Right'],
+  v: ['Top', 'Bottom'],
+  h: ['Left', 'Right'],
 }
 
 const getSpaceStyleName = (key: string) => {

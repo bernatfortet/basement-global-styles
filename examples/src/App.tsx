@@ -13,8 +13,8 @@ const App: React.SFC<Props> = (props: Props) => {
   const {} = props
   return(
     <Row vCenter className='links'>
-      <Row bg='orange' m={[10, 20]}>123123</Row>
-      <Box bg='orange' m={[20, 40]}>asdf</Box>
+      <Row bg='orange' mh={20}>123123</Row>
+      <Box bg='orange' mh={20}>asdf</Box>
     </Row>
   )
 }
