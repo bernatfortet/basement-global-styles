@@ -41,10 +41,11 @@ var globalStyles = __assign({}, global_styles_1.s, { size: size,
     unselectable: unselectable,
     untouchable: untouchable,
     actionable: actionable,
-    boxProps: primitive_1.boxProps,
+    dimensionProps: primitive_1.dimensionProps,
     spacingProps: primitive_1.spacingProps,
-    textProps: primitive_1.textProps,
-    dimensionProps: primitive_1.dimensionProps, breakpoints: utils_1.defaultBreakpoints });
+    flexProps: primitive_1.flexProps,
+    positionProps: primitive_1.positionProps,
+    appearanceProps: primitive_1.appearanceProps, breakpoints: utils_1.defaultBreakpoints });
 exports.s = globalStyles;
 // Exported Utils
 var utils_2 = require("./utils");

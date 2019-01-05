@@ -14,10 +14,11 @@ declare const globalStyles: {
     unselectable: any;
     untouchable: any;
     actionable: any;
-    boxProps: any;
-    spacingProps: (props: types.SpacingProps) => any[];
-    textProps: any;
     dimensionProps: any;
+    spacingProps: (props: types.SpacingProps) => any[];
+    flexProps: any;
+    positionProps: any;
+    appearanceProps: any;
     breakpoints: number[];
     pabs: string;
     prel: string;

@@ -11,7 +11,8 @@ export const dimensionProps = css<DimensionProps>`
   ${p => p.display ? `display:${p.display};` : ''}
   
 	${p => p.w ? `width:${parseUnit(p.w)};` : ''}
-	${p => p.h ? `height:${parseUnit(p.h)};` : ''}
+  ${p => p.h ? `height:${parseUnit(p.h)};` : ''}
+  
 	${p => p.minw ? `min-width:${parseUnit(p.minw)};` : ''}
 	${p => p.minh ? `min-height:${parseUnit(p.minh)};` : ''}
 	${p => p.maxw ? `max-width:${parseUnit(p.maxw)};` : ''}
@@ -46,8 +47,7 @@ const getSpaceStyleName = (key: string) => {
 }
 
 export const spacingProps = (props: SpacingProps) => {
-  const keys = Object.keys(props)
-  .filter(key => REG.test(key))
+  const keys = Object.keys(props).filter(key => REG.test(key))
   
   return keys.map(key => {
     const value = props[key]
@@ -166,6 +166,7 @@ export const textProps = css<TextProps>`
 `
 
 export const boxProps = css<BoxProps>`
+  ${dimensionProps}
 	${spacingProps}
 	${flexProps}
 	${positionProps}

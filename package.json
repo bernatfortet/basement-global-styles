@@ -11,8 +11,7 @@
   "scripts": {
     "build": "tsc",
     "compile": "babel --presets es2015,stage-0 -d lib/ src/",
-    "prepare": "yarn run build && npm version patch",
-    "release": "npm publish"
+    "release": "yarn run build && npm version patch && npm publish"
   },
   "devDependencies": {
     "@types/react": "^16.7.18",
