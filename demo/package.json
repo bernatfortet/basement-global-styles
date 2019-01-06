@@ -1,0 +1,16 @@
+{
+  "name": "box-props-demo",
+  "version": "0.0.1",
+  "main": "index.tsx",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel index.html --open"
+  },
+  "dependencies": {
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
+    "parcel-bundler": "^1.11.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  }
+}
