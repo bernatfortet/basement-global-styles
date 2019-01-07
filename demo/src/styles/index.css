@@ -1,1 +1,3 @@
-html, body, #react{ margin:0; padding:0; display:flex; }
+html, body, #react{ margin:0; padding:0; display:flex;
+  font-family: sans-serif;
+}

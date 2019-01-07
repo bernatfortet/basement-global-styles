@@ -1,4 +1,11 @@
 import { CSSProperties, Ref } from 'react'
+import { MediaValues } from './utils';
+
+export type UnitValue = string | number | string[] | number[] | Partial<{ [Key in MediaValues]: string | number }>
+
+export type PropsToStyleMap<ValueType> = {
+  [key: string]: ValueType
+}
 
 export type DimensionProps = {
   display?: string,

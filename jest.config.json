@@ -1,4 +1,4 @@
-module.exports = {
+{
   "roots": [
     "<rootDir>"
   ],
@@ -14,4 +14,11 @@ module.exports = {
     "json",
     "node"
   ],
+  "verbose": true,
+  "testEnvironment": "node",
+  "coverageDirectory": "coverage",
+  "collectCoverageFrom": [
+    "lib/**/*.{ts,js}",
+    "!lib/**/*.d.ts"
+  ]
 }

@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 
 import { s } from './global-styles'
 import { boxProps, dimensionProps, spacingProps, textProps, flexProps, positionProps, appearanceProps } from './primitive'
+export { dimensions } from './quickProps/dimensions'
 import * as types from './types';
 import { parseUnit, createMediaQuery, defaultBreakpoints } from './utils'
 

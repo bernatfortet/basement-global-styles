@@ -3,8 +3,11 @@ import { s } from './global-styles'
 
 import { parseUnit, createMediaQuery, is } from './utils'
 import { BoxProps, SpacingProps, DimensionProps, PositionProps, AppearanceProps, FlexProps, TextProps } from './types'
+import { dimensions } from './dimensions';
 
 const defaultBreakpoints = [576, 768, 992, 1200]
+
+const DIMENSIONS_REG = /^((max)|(min))[wh]?$/
 
 
 export const dimensionProps = css<DimensionProps>`
@@ -23,6 +26,7 @@ export const dimensionProps = css<DimensionProps>`
 
 // Spacing Properties
 const REG = /^[mp][trblhv]?$/
+
 const properties: { [key: string]: string } = {
   m: 'margin',
   p: 'padding'
