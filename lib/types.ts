@@ -8,7 +8,6 @@ export type PropsToStyleMap<ValueType> = {
 }
 
 export type DimensionProps = {
-  display?: string,
   w?: string | number,
   h?: string | number,
   sz?: number | string,
@@ -78,7 +77,7 @@ export type RowColProps = {
   vCenter?: boolean,
 }
 
-export type PositionProps = {
+export type LayoutProps = {
   /** position: absolute */
   pabs?: boolean,
   /** position: relative */
@@ -93,6 +92,8 @@ export type PositionProps = {
 
   /** z-index */
   zi?: number,
+
+  display?: string,
 }
 
 export type AppearanceProps = {

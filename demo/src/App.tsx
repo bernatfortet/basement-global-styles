@@ -10,7 +10,7 @@ dimensions(
     // sz: 200,
     // w: [50, 100, 200],
     // h: [50 ,100, 200],
-    maxh: { sm: 100, lg: 200}
+    maxh: { base: 400, lg: 200, sm: 100, }
     // key: '',
   }
 )
@@ -24,7 +24,7 @@ const App: React.SFC<Props> = (props: Props) => {
   return(
     <Row vCenter className='links'>
 
-      <Box bg='orange' p={20} m={20}>I'm a box with Padding and Margin</Box>
+      <Box bg='orange' p={[50, 20]} m={{xlg: 20, sm: 0}}>I'm a box with Padding and Margin</Box>
       <Box bg='orange' m={20}>asdf</Box>
     </Row>
   )

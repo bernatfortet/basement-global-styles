@@ -1,4 +1,4 @@
-import { merge, getStyle, getStylesForMap } from "../utils";
+import { merge, getStyle, getStylesForPropMap } from "../utils";
 import { UnitValue, PropsToStyleMap } from "../types";
 
 export type DimensionProps = {
@@ -24,6 +24,6 @@ const dimensionPropsMap: DimensionPropsMap = {
 }
 
 export function dimensions(props: DimensionProps) {
-  return getStylesForMap<DimensionProps, DimensionPropsMap>(props, dimensionPropsMap)
+  return getStylesForPropMap<DimensionProps, DimensionPropsMap>(props, dimensionPropsMap)
 }
 

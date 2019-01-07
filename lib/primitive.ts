@@ -2,7 +2,8 @@ import styled, { css } from 'styled-components'
 import { s } from './global-styles'
 
 import { parseUnit, createMediaQuery, is } from './utils'
-import { BoxProps, SpacingProps, DimensionProps, PositionProps, AppearanceProps, FlexProps, TextProps } from './types'
+import { BoxProps, SpacingProps, DimensionProps, LayoutProps, AppearanceProps, FlexProps, TextProps } from './types'
+import { spacing, dimensions } from './quickProps';
 
 const defaultBreakpoints = [576, 768, 992, 1200]
 
@@ -10,7 +11,6 @@ const DIMENSIONS_REG = /^((max)|(min))[wh]?$/
 
 
 export const dimensionProps = css<DimensionProps>`
-  ${p => p.display ? `display:${p.display};` : ''}
   
 	${p => p.w ? `width:${parseUnit(p.w)};` : ''}
   ${p => p.h ? `height:${parseUnit(p.h)};` : ''}
@@ -123,7 +123,7 @@ export const flexProps = css<FlexProps>`
   ${ p => p.flex1 ? `display:flex; flex: 1 1 0%;` : '' }
 `
 
-export const positionProps = css<PositionProps>`
+export const layoutProps = css<LayoutProps>`
 	${ p => p.pabs ? s.pabs : ''}
 	${ p => p.prel ? s.prel : ''}
 	${ p => p.pfix ? `position: fixed;` : ''}
@@ -134,6 +134,7 @@ export const positionProps = css<PositionProps>`
   ${ p => p.right ? `right: ${parseUnit(p.right)};` : '' }
   
   ${ p => p.zi ? `z-index: ${p.zi};` : '' }
+  ${ p => p.display ? `display:${p.display};` : ''}
 `
 
 export const appearanceProps = css<AppearanceProps>`
@@ -169,10 +170,10 @@ export const textProps = css<TextProps>`
 `
 
 export const boxProps = css<BoxProps>`
-  ${dimensionProps}
-	${spacingProps}
+	${spacing}
+	${dimensions}
 	${flexProps}
-	${positionProps}
+	${layoutProps}
 	${appearanceProps}
 `
 

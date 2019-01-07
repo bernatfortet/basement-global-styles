@@ -1,4 +1,4 @@
-import { merge, getStyle, getStylesForMap } from "../utils";
+import { merge, getStyle, getStylesForPropMap } from "../utils";
 import { UnitValue, PropsToStyleMap } from "../types";
 
 export type SpacingProps = {
@@ -43,7 +43,7 @@ const spacingPropsMap: SpacingPropsMap = {
   pv: ['pt', 'pb'],
 }
 
-export function dimensions(props: SpacingProps) {
-  return getStylesForMap<SpacingProps, SpacingPropsMap>(props, spacingPropsMap)
+export function spacing(props: SpacingProps) {
+  return getStylesForPropMap<SpacingProps, SpacingPropsMap>(props, spacingPropsMap)
 }
 

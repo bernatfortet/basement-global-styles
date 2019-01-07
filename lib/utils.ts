@@ -1,5 +1,6 @@
 const { isArray } = Array
 
+const DEFAULT_MEDIA_KEY = 'base'
 export const is = (n: any) => n !== undefined && n !== null
 export const isNum = (n: any): boolean => typeof n === 'number' && !isNaN(n)
 export const parseUnit = (n: number | string) => isNum(n) ? n + 'px' : n
@@ -15,6 +16,7 @@ export const defaultBreakpointsObject = {
 }
 
 export enum MediaValues {
+  base = 'base',
   sm = 'sm',
   md = 'md',
   lg = 'lg',
@@ -54,6 +56,11 @@ export function getObjectMediaStylesForValues(styleKey: string, propValues) {
   let styles: any = {}
 
   Object.entries(propValues).forEach(([mediaKey, propValue]: [string, number]) => {
+    console.log('propValues: ', propValues)
+
+    if (mediaKey == DEFAULT_MEDIA_KEY)
+      return Object.assign(styles, getSimpleStyle(styleKey, propValue))
+
     const mediaSize = defaultBreakpointsObject[mediaKey]
     const mediaQuery = createMediaQuery(mediaSize)
     Object.assign(styles, {
@@ -80,7 +87,7 @@ function getSimpleStyle(styleKey: string, propValue) {
 
 
 
-export function getStylesForMap<Props, Map>(props: Props, map: Map) {
+export function getStylesForPropMap<Props, Map>(props: Props, map: Map) {
   const styleKeys = Object.keys(map)
   const propKeys = Object.keys(props).filter(propKey => styleKeys.includes(propKey))
 
