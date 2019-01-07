@@ -3,7 +3,6 @@ import { s } from './global-styles'
 
 import { parseUnit, createMediaQuery, is } from './utils'
 import { BoxProps, SpacingProps, DimensionProps, PositionProps, AppearanceProps, FlexProps, TextProps } from './types'
-import { dimensions } from './dimensions';
 
 const defaultBreakpoints = [576, 768, 992, 1200]
 
