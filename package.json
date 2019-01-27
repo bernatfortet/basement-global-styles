@@ -1,6 +1,6 @@
 {
   "name": "@bernatfortet/global-styles",
-  "version": "0.0.422",
+  "version": "0.0.423",
   "description": "Global Styles for styled-components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -36,10 +36,8 @@
     "url": "https://github.com/bernatfortet/basement-global-styles/issues"
   },
   "homepage": "https://github.com/bernatfortet/basement-global-styles#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   }
-
 }
