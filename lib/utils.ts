@@ -56,8 +56,6 @@ export function getObjectMediaStylesForValues(styleKey: string, propValues) {
   let styles: any = {}
 
   Object.entries(propValues).forEach(([mediaKey, propValue]: [string, number]) => {
-    console.log('propValues: ', propValues)
-
     if (mediaKey == DEFAULT_MEDIA_KEY)
       return Object.assign(styles, getSimpleStyle(styleKey, propValue))
 

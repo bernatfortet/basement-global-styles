@@ -49,6 +49,7 @@ const globalStyles = {
   flexProps,
   positionProps,
   appearanceProps,
+  boxProps,
 
   breakpoints: defaultBreakpoints,
 }

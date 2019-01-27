@@ -24,10 +24,13 @@ const App: React.SFC<Props> = (props: Props) => {
   return(
     <Row vCenter className='links'>
 
-      <Box bg='orange' p={[50, 20]} m={{xlg: 20, sm: 0}}>I'm a box with Padding and Margin</Box>
-      <Box bg='orange' m={20}>asdf</Box>
+      <Box bg='orange' p={[50, 40]} m={{base: 40, sm: 0}}>I'm a box with Padding and Margin</Box>
+      <Box bg='orange'>asdf</Box>
     </Row>
   )
 }
 
 export default App
+
+
+const Test = styled.input` ${s.boxProps} `
