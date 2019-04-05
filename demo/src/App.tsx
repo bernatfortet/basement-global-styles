@@ -2,29 +2,19 @@ import * as React from 'react'
 import styled, { css } from 'styled-components'
 
 import { Column, Box, Row, s } from '../../lib/index'
-import { dimensions } from '../../lib'
 
 import { opacity, Box2 } from './styledSystem'
-
-
-dimensions(
-  {
-    sz: 200,
-    w: [50, 100, 200],
-    h: [50 ,100, 200],
-    maxh: { base: 400, lg: 200, sm: 100, }
-    // key: '',
-  }
-)
 
 type Props = {
 }
 
 const App: React.SFC<Props> = (props: Props) => {
   const {} = props
-  return <div>
-    <Box2  bg='black' br={12} color={'red'} p={20} op={0.5} pos='relative' top={100} >asdf</Box2>
-  </div>
+  return <Row w='100%' flex1 center>
+    <Box2  bg='black' br={12} color='red' p={20} pos='relative' top={100}>
+      asdf
+    </Box2>
+  </Row>
   
   // return(
   //   <Row vCenter className='links'>

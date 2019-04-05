@@ -3,7 +3,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 
 import { s } from './global-styles'
-import { boxProps, dimensionProps, spacingProps, textProps, flexProps, appearanceProps } from './primitive'
+import { boxProps, textProps, flexProps, layoutProps } from './primitive'
 export { dimensions } from './quickProps/dimensions'
 import * as types from './types';
 import { parseUnit, createMediaQuery, defaultBreakpoints } from './utils'
@@ -44,10 +44,9 @@ const globalStyles = {
   untouchable,
   actionable,
 
-  dimensionProps,
-  spacingProps,
+  textProps,
   flexProps,
-  appearanceProps,
+  layoutProps,
   boxProps,
 
   breakpoints: defaultBreakpoints,
