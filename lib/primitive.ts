@@ -3,7 +3,7 @@ import { s } from './global-styles'
 
 import { parseUnit, createMediaQuery, is } from './utils'
 import { BoxProps, SpacingProps, DimensionProps, LayoutProps, AppearanceProps, FlexProps, TextProps } from './types'
-import { spacing, dimensions } from './quickProps';
+import { spacing, dimensions, appearance } from './quickProps';
 
 const defaultBreakpoints = [576, 768, 992, 1200]
 
@@ -145,7 +145,7 @@ export const appearanceProps = css<AppearanceProps>`
   ${ p => p.br ? `border-radius:${parseUnit(p.br)};` : ''}
   
 	${p => p.opacity ? `opacity:${p.opacity};` : ''}
-  ${p => p.op ? `opacity:${p.op};` : ''}
+  ${p => p.op != undefined && p.op != null ? `opacity:${p.op};` : ''}
 `
 
 export const textProps = css<TextProps>`
@@ -172,8 +172,9 @@ export const textProps = css<TextProps>`
 export const boxProps = css<BoxProps>`
 	${spacing}
 	${dimensions}
+	${appearance}
 	${flexProps}
 	${layoutProps}
-	${appearanceProps}
-`
+  `
+	// ${appearanceProps}
 

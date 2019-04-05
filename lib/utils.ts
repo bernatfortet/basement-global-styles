@@ -69,7 +69,7 @@ export function getObjectMediaStylesForValues(styleKey: string, propValues) {
   return styles
 }
 
-export function getStyle(styleKey: string, propValue) {
+export function getStyle(styleKey: string, propValue: any) {
   if (isArray(propValue))
     return getArrayMediaStylesForValues(styleKey, propValue)
 
@@ -79,7 +79,7 @@ export function getStyle(styleKey: string, propValue) {
   return getSimpleStyle(styleKey, propValue)
 }
 
-function getSimpleStyle(styleKey: string, propValue) {
+function getSimpleStyle(styleKey: string, propValue: any) {
   return { [styleKey]: parseUnit(propValue) }
 }
 
