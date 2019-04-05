@@ -173,7 +173,7 @@ const padding = style({
   alias: 'p',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  // scale: spaceScale,
 })
 
 const paddingTop = style({
