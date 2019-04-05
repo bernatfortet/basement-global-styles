@@ -19,13 +19,33 @@ const unselectable = css` user-select:none; & * { user-select:none; } `
 const untouchable = css` ${unselectable} pointer-events:none; & * { pointer-events:none; }  `
 const actionable = css` ${unselectable} cursor:pointer;  `
 
-const mediaQueries = defaultBreakpoints.map(unit => createMediaQuery(unit))
+const mediaDimensions = {
+  sm: 500,
+  md: 768,
+  lg: 1110,
+}
 
 const media = {
-  sm: mediaQueries[0],
-  md: mediaQueries[1],
-  lg: mediaQueries[2],
-  xlg: mediaQueries[3],
+  sm: (...args: any) => css`
+    @media (max-width: ${mediaDimensions.sm}px) {
+      ${ css(args)}
+    }
+  `,
+  md: (...args: any) => css`
+    @media (max-width: ${mediaDimensions.md}px) {
+      ${ css(args)}
+    }
+  `,
+  lg: (...args: any) => css`
+    @media (max-width: ${mediaDimensions.lg}px) {
+      ${ css(args)}
+    }
+  `,
+  w: (width, ...args: any) => css`
+    @media (max-width: ${width}px) {
+      ${ css(args)}
+    }
+  `
 }
 
 export const Column = styled(Root).attrs({ col: true })` ${boxProps} `
