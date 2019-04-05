@@ -5,7 +5,6 @@ export const s: GlobalStyles = {
   prel:            'position: relative;',
 
 	flex:           'display:flex;',
-	flx:           	'display:flex;', // Depracated
   flex1:          'flex: 1 1 0%; display:flex;',
   flxRow:         'flex-direction: row; display:flex;',
 	flxCol:         'flex-direction: column; display:flex;',

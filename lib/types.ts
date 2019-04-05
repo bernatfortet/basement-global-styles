@@ -31,12 +31,6 @@ export interface QuickTypographyProps {
 
   // Alignment ---
 
-  /** text-align: center => Depracated use tac => replaced by vCenter + hCenter */
-  center?: boolean,
-
-  /** text-align: right => Depracated use tar => replaced by layout "right" */
-  right?: boolean,
-
   /** text-align: left */
   tal?: boolean,
 
@@ -118,9 +112,6 @@ export type GlobalStyles = {
 
   /** display: flex; */
   flex: string,
-
-  /** display: flex; */
-  flx: string,
 
   /** flex: 1 1 0%; display:flex; */
   flex1: string,
