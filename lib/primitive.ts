@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { s } from './global-styles'
 
 import { BoxProps, LayoutProps, FlexProps, TextProps } from './types'
-import { systemBox } from './styledSystems';
+import { systemBox, textProps as styledSystemTextProps } from './styledSystems';
 
 const defaultBreakpoints = [576, 768, 992, 1200]
 
@@ -53,6 +53,7 @@ export const layoutProps = css<LayoutProps>`
 `
 
 export const textProps = css<TextProps>`
+  ${styledSystemTextProps}
   ${p => p.light ? `font-weight:300;` : ''}
   ${p => p.regular ? `font-weight:400;` : ''}
   ${p => p.medium ? `font-weight:500;` : ''}
