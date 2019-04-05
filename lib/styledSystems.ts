@@ -580,10 +580,10 @@ const appearance = compose(
 
 type AppearanceProps = BorderProps & {
   /** background-color */
-  bg?: StringValue,
+  bg?: string,
 
   /** color */
-  color?: StringValue,
+  color?: string,
 
   /** background */
   background?: StringValue,
