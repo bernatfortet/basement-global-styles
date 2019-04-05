@@ -112,7 +112,7 @@ export type AppearanceProps = {
   op?: number,
 }
 
-export interface BoxProps extends SpacingProps, RowColProps {
+export interface BoxProps extends FlexProps, SpacingProps, RowColProps {
   [key: string]: any
   center?: boolean,
 }

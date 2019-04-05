@@ -1,9 +1,10 @@
 import * as React from 'react'
 import styled, { css } from 'styled-components'
 
-import { Column, Box, Row, s } from '../../lib/index'
+import { Column, Box, Row, s, BoxProps } from '../../lib/index'
+import { boxProps } from '../../lib/primitive';
 
-import { opacity, Box2 } from './styledSystem'
+export const Box2 = styled.div <BoxProps>` ${boxProps}`
 
 type Props = {
 }
@@ -11,9 +12,9 @@ type Props = {
 const App: React.SFC<Props> = (props: Props) => {
   const {} = props
   return <Row w='100%' flex1 center>
-    <Box2  bg='black' br={12} color='red' p={20} pos='relative' top={100}>
+    <Box bg='black' br={12} color='red' p={20} pos='relative' top={100}>
       asdf
-    </Box2>
+    </Box>
   </Row>
   
   // return(

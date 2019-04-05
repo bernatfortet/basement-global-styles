@@ -32,7 +32,7 @@ export const Column = styled(Root).attrs({ col: true })` ${boxProps} `
 
 export const Row = styled(Root).attrs({ row: true })` ${boxProps} `
 
-export const Box = styled(Root)` ${boxProps}`
+export const Box = styled(Root)<BoxProps>` ${boxProps}`
 
 const globalStyles = {
   ...s,
