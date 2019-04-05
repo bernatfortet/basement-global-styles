@@ -367,8 +367,8 @@ const minHeight = style({
 
 const size = mapProps(props => ({
   ...props,
-  width: props.size,
-  height: props.size,
+  width: props.sz,
+  height: props.sz,
 }))(
   compose(
     width,
@@ -410,13 +410,28 @@ type LayoutProps = {
 // const alignContent = style({ prop: 'alignContent' })
 // const justifyItems = style({ prop: 'justifyItems' })
 // const justifyContent = style({ prop: 'justifyContent' })
-// const flexWrap = style({ prop: 'flexWrap' })
-// const flexBasis = style({ prop: 'flexBasis', transformValue: getWidth })
-// const flexDirection = style({ prop: 'flexDirection' })
 // const flex = style({ prop: 'flex' })
 // const justifySelf = style({ prop: 'justifySelf' })
 // const alignSelf = style({ prop: 'alignSelf' })
-// const order = style({ prop: 'order' })
+
+const order = style({ prop: 'order' })
+const flexWrap = style({ prop: 'flexWrap' })
+const flexBasis = style({ prop: 'flexBasis', transformValue: getWidth })
+const flexDirection = style({ prop: 'flexDirection' })
+
+const flex = compose(
+  order,
+  flexWrap,
+  flexBasis,
+  flexDirection,
+)
+
+type FlexProps = {
+  order?: NumberValue,
+  flexWrap?: StringValue,
+  flexBasis?: StringValue,
+  flexDirection?: StringValue,
+}
 
 // grid
 // const gridGap = style({
@@ -463,11 +478,6 @@ const backgroundColor = style({
   alias: 'bg',
   key: 'colors',
 })
-
-const color = compose(
-  textColor,
-  backgroundColor
-)
 
 // borders
 const border = style({
@@ -557,7 +567,7 @@ const backgroundRepeat = style({ prop: 'backgroundRepeat' })
 const appearance = compose(
   borders,
   backgroundColor,
-  color,
+  textColor,
   boxShadow,
   opacity,
   overflow,
@@ -642,6 +652,7 @@ export const systemBox = compose(
   spacing,
   appearance,
   positionProps,
+  flex,
 )
 
-export type StyledSystemPropsTypes = LayoutProps & SpacingProps & AppearanceProps & PositionProps
+export type StyledSystemPropsTypes = LayoutProps & SpacingProps & AppearanceProps & PositionProps & FlexProps
