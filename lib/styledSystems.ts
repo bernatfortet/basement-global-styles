@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+// based on styled-system 4.1.1
+
 const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
 
 const cloneFunction = fn => (...args) => fn(...args)
