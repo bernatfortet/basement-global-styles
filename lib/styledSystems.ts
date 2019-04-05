@@ -540,6 +540,7 @@ const borders = compose(
   borderRadius
 )
 
+// TODO convert these to quickProps
 type BorderProps = {
   border?: UnitValue,
   borderTop?: UnitValue,
