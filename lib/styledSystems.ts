@@ -205,14 +205,14 @@ export const paddingRight = style({
 
 export const space = mapProps(props => ({
   ...props,
-  mt: is(props.my) ? props.my : props.mt,
-  mb: is(props.my) ? props.my : props.mb,
-  ml: is(props.mx) ? props.mx : props.ml,
-  mr: is(props.mx) ? props.mx : props.mr,
-  pt: is(props.py) ? props.py : props.pt,
-  pb: is(props.py) ? props.py : props.pb,
-  pl: is(props.px) ? props.px : props.pl,
-  pr: is(props.px) ? props.px : props.pr,
+  mt: is(props.mv) ? props.mv : props.mt,
+  mb: is(props.mv) ? props.mv : props.mb,
+  ml: is(props.mh) ? props.mh : props.ml,
+  mr: is(props.mh) ? props.mh : props.mr,
+  pt: is(props.pv) ? props.pv : props.pt,
+  pb: is(props.pv) ? props.pv : props.pb,
+  pl: is(props.ph) ? props.ph : props.pl,
+  pr: is(props.ph) ? props.ph : props.pr,
 }))(
   compose(
     margin,
