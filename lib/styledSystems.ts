@@ -548,7 +548,7 @@ type BorderProps = {
   borderLeft?: UnitValue,
   borderWidth?: UnitValue,
   borderStyle?: UnitValue,
-  borderColor?: UnitValue,
+  borderColor?: string, // UnitValue,
   borderRadius?: UnitValue,
 }
 
