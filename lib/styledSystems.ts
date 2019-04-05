@@ -4,7 +4,7 @@ type NumberValue = number  | number[]
 
 // based on styled-system 4.1.1
 
-const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
+export const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
 
 const cloneFunction = fn => (...args) => fn(...args)
 

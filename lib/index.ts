@@ -1,12 +1,12 @@
 import React from 'react'
 
-import styled, { css } from 'styled-components'
+import styled, { css, ThemedCssFunction } from 'styled-components'
 
 import { s } from './global-styles'
 import { boxProps, textProps } from './primitive'
 import * as types from './types';
-import { defaultBreakpoints } from './utils'
-import { spacing } from './styledSystems';
+import { spacing, defaultBreakpoints } from './styledSystems';
+import { defaultBreakpointsObject } from './utils';
 
 const Root = styled.div``
 
@@ -19,34 +19,23 @@ const unselectable = css` user-select:none; & * { user-select:none; } `
 const untouchable = css` ${unselectable} pointer-events:none; & * { pointer-events:none; }  `
 const actionable = css` ${unselectable} cursor:pointer;  `
 
-const mediaDimensions = {
-  sm: 500,
-  md: 768,
-  lg: 1110,
-}
+const sizes = defaultBreakpointsObject
 
-const media = {
-  sm: (...args: any) => css`
-    @media (max-width: ${mediaDimensions.sm}px) {
-      ${ css(args)}
-    }
-  `,
-  md: (...args: any) => css`
-    @media (max-width: ${mediaDimensions.md}px) {
-      ${ css(args)}
-    }
-  `,
-  lg: (...args: any) => css`
-    @media (max-width: ${mediaDimensions.lg}px) {
-      ${ css(args)}
-    }
-  `,
-  w: (width, ...args: any) => css`
-    @media (max-width: ${width}px) {
-      ${ css(args)}
-    }
-  `
-}
+export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
+  (acc, label) => {
+    acc[label] = (first: any, ...interpolations: any[]) => css`
+      @media (max-width: ${sizes[label]}) {
+        ${css(first, ...interpolations)}
+      }
+    `;
+
+    return acc;
+  },
+  {} as { [key in keyof typeof sizes]: ThemedCssFunction<any> },
+);
+
+const mediaQuery = (maxWidth: number) =>
+  `@media (max-width: ${maxWidth}px)`;
 
 export const Column = styled(Root).attrs({ col: true })<BoxProps>` ${boxProps} `
 
@@ -63,6 +52,8 @@ const globalStyles = {
   unselectable,
   untouchable,
   actionable,
+
+  mediaQuery,
 
   textProps,
   boxProps,
