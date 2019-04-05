@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-export const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
+const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
 
-export const cloneFunction = fn => (...args) => fn(...args)
+const cloneFunction = fn => (...args) => fn(...args)
 
-export const get = (obj, ...paths) => {
+const get = (obj, ...paths) => {
   const value = paths.reduce((a, path) => {
     if (is(a)) return a
     const keys = typeof path === 'string' ? path.split('.') : [path]
@@ -12,18 +12,18 @@ export const get = (obj, ...paths) => {
   return is(value) ? value : paths[paths.length - 1]
 }
 
-export const themeGet = (path, fallback = null) => props =>
+const themeGet = (path, fallback = null) => props =>
   get(props.theme, path, fallback)
 
-export const is = n => n !== undefined && n !== null
+const is = n => n !== undefined && n !== null
 
-export const isObject = n => typeof n === 'object' && n !== null
+const isObject = n => typeof n === 'object' && n !== null
 
-export const num = n => typeof n === 'number' && !isNaN(n)
+const num = n => typeof n === 'number' && !isNaN(n)
 
-export const px = n => (num(n) && n !== 0 ? n + 'px' : n)
+const px = n => (num(n) && n !== 0 ? n + 'px' : n)
 
-export const createMediaQuery = n => `@media screen and (min-width: ${px(n)})`
+const createMediaQuery = n => `@media screen and (min-width: ${px(n)})`
 
 const getValue = (n, scale) => get(scale, n)
 
@@ -35,7 +35,7 @@ type StyleProps = {
   transformValue?: any,
   scale?: any,
 }
-export const style = ({
+const style = ({
   prop,
   cssProperty,
   alias,
@@ -89,7 +89,7 @@ export const style = ({
   return func
 }
 
-export const compose = (...funcs) => {
+const compose = (...funcs) => {
   const func = props => {
     const n = funcs.map(fn => fn(props)).filter(Boolean)
     return n
@@ -98,7 +98,7 @@ export const compose = (...funcs) => {
   return func
 }
 
-export const mapProps = mapper => func => {
+const mapProps = mapper => func => {
   const next = props => func(mapper(props))
   for (const key in func) {
     next[key] = func[key]
@@ -123,7 +123,7 @@ const getSpace = (n, scale) => {
   return px(value * (isNegative ? -1 : 1))
 }
 
-export const margin = style({
+const margin = style({
   prop: 'margin',
   alias: 'm',
   key: 'space',
@@ -131,7 +131,7 @@ export const margin = style({
   scale: spaceScale,
 })
 
-export const marginTop = style({
+const marginTop = style({
   prop: 'marginTop',
   alias: 'mt',
   key: 'space',
@@ -139,7 +139,7 @@ export const marginTop = style({
   scale: spaceScale,
 })
 
-export const marginBottom = style({
+const marginBottom = style({
   prop: 'marginBottom',
   alias: 'mb',
   key: 'space',
@@ -147,7 +147,7 @@ export const marginBottom = style({
   scale: spaceScale,
 })
 
-export const marginLeft = style({
+const marginLeft = style({
   prop: 'marginLeft',
   alias: 'ml',
   key: 'space',
@@ -155,7 +155,7 @@ export const marginLeft = style({
   scale: spaceScale,
 })
 
-export const marginRight = style({
+const marginRight = style({
   prop: 'marginRight',
   alias: 'mr',
   key: 'space',
@@ -163,7 +163,7 @@ export const marginRight = style({
   scale: spaceScale,
 })
 
-export const padding = style({
+const padding = style({
   prop: 'padding',
   alias: 'p',
   key: 'space',
@@ -171,7 +171,7 @@ export const padding = style({
   scale: spaceScale,
 })
 
-export const paddingTop = style({
+const paddingTop = style({
   prop: 'paddingTop',
   alias: 'pt',
   key: 'space',
@@ -179,7 +179,7 @@ export const paddingTop = style({
   scale: spaceScale,
 })
 
-export const paddingBottom = style({
+const paddingBottom = style({
   prop: 'paddingBottom',
   alias: 'pb',
   key: 'space',
@@ -187,7 +187,7 @@ export const paddingBottom = style({
   scale: spaceScale,
 })
 
-export const paddingLeft = style({
+const paddingLeft = style({
   prop: 'paddingLeft',
   alias: 'pl',
   key: 'space',
@@ -195,7 +195,7 @@ export const paddingLeft = style({
   scale: spaceScale,
 })
 
-export const paddingRight = style({
+const paddingRight = style({
   prop: 'paddingRight',
   alias: 'pr',
   key: 'space',
@@ -229,27 +229,27 @@ export const space = mapProps(props => ({
 )
 
 // color
-export const textColor = style({
+const textColor = style({
   prop: 'color',
   key: 'colors',
 })
 
-export const backgroundColor = style({
+const backgroundColor = style({
   prop: 'backgroundColor',
   alias: 'bg',
   key: 'colors',
 })
 
-export const color = compose(
+const color = compose(
   textColor,
   backgroundColor
 )
 
 // typography
 
-export const getPx = (n, scale) => px(get(scale, n))
+const getPx = (n, scale) => px(get(scale, n))
 
-export const fontSize = style({
+const fontSize = style({
   prop: 'fontSize',
   key: 'fontSizes',
   alias: 'fs',
@@ -257,33 +257,33 @@ export const fontSize = style({
   scale: [12, 14, 16, 20, 24, 32, 48, 64, 72],
 })
 
-export const fontFamily = style({
+const fontFamily = style({
   prop: 'fontFamily',
   key: 'fonts',
 })
 
-export const fontWeight = style({
+const fontWeight = style({
   prop: 'fontWeight',
   alias: 'weight',
   key: 'fontWeights',
 })
 
-export const lineHeight = style({
+const lineHeight = style({
   prop: 'lineHeight',
   key: 'lineHeights',
   alias: 'lh',
 })
 
 // using quickProps
-// export const textAlign = style({
+// const textAlign = style({
 //   prop: 'textAlign',
 // })
 
-export const fontStyle = style({
+const fontStyle = style({
   prop: 'fontStyle',
 })
 
-export const letterSpacing = style({
+const letterSpacing = style({
   prop: 'letterSpacing',
   key: 'letterSpacings',
   transformValue: getPx,
@@ -291,55 +291,55 @@ export const letterSpacing = style({
 
 // layout
 
-export const display = style({
+const display = style({
   prop: 'display',
 })
 
-export const getWidth = (n, scale) => (!num(n) || n > 1 ? px(n) : n * 100 + '%')
+const getWidth = (n, scale) => (!num(n) || n > 1 ? px(n) : n * 100 + '%')
 
-export const width = style({
+const width = style({
   prop: 'width',
   key: 'widths',
   alias: 'w',
   transformValue: getWidth,
 })
 
-export const maxWidth = style({
+const maxWidth = style({
   prop: 'maxWidth',
   key: 'maxWidths',
   alias: 'maxw',
   transformValue: getPx,
 })
 
-export const minWidth = style({
+const minWidth = style({
   prop: 'minWidth',
   key: 'minWidths',
   alias: 'minw',
   transformValue: getPx,
 })
 
-export const height = style({
+const height = style({
   prop: 'height',
   key: 'heights',
   alias: 'h',
   transformValue: getPx,
 })
 
-export const maxHeight = style({
+const maxHeight = style({
   prop: 'maxHeight',
   key: 'maxHeights',
   alias: 'maxh',
   transformValue: getPx,
 })
 
-export const minHeight = style({
+const minHeight = style({
   prop: 'minHeight',
   key: 'minHeights',
   alias: 'minh',
   transformValue: getPx,
 })
 
-export const size = mapProps(props => ({
+const size = mapProps(props => ({
   ...props,
   width: props.size,
   height: props.size,
@@ -350,9 +350,9 @@ export const size = mapProps(props => ({
   )
 )
 
-export const verticalAlign = style({ prop: 'verticalAlign' })
+const verticalAlign = style({ prop: 'verticalAlign' })
 
-export const layout = compose(
+const layout = compose(
   display,
   width,
   maxWidth,
@@ -366,100 +366,100 @@ export const layout = compose(
 
 
 // flexbox
-export const alignItems = style({ prop: 'alignItems' })
-export const alignContent = style({ prop: 'alignContent' })
-export const justifyItems = style({ prop: 'justifyItems' })
-export const justifyContent = style({ prop: 'justifyContent' })
-export const flexWrap = style({ prop: 'flexWrap' })
-export const flexBasis = style({ prop: 'flexBasis', transformValue: getWidth })
-export const flexDirection = style({ prop: 'flexDirection' })
-export const flex = style({ prop: 'flex' })
-export const justifySelf = style({ prop: 'justifySelf' })
-export const alignSelf = style({ prop: 'alignSelf' })
-export const order = style({ prop: 'order' })
+const alignItems = style({ prop: 'alignItems' })
+const alignContent = style({ prop: 'alignContent' })
+const justifyItems = style({ prop: 'justifyItems' })
+const justifyContent = style({ prop: 'justifyContent' })
+const flexWrap = style({ prop: 'flexWrap' })
+const flexBasis = style({ prop: 'flexBasis', transformValue: getWidth })
+const flexDirection = style({ prop: 'flexDirection' })
+const flex = style({ prop: 'flex' })
+const justifySelf = style({ prop: 'justifySelf' })
+const alignSelf = style({ prop: 'alignSelf' })
+const order = style({ prop: 'order' })
 
 // grid
-// export const gridGap = style({
+// const gridGap = style({
 //   prop: 'gridGap',
 //   key: 'space',
 //   transformValue: getPx,
 //   scale: spaceScale,
 // })
 
-// export const gridColumnGap = style({
+// const gridColumnGap = style({
 //   prop: 'gridColumnGap',
 //   key: 'space',
 //   transformValue: getPx,
 //   scale: spaceScale,
 // })
 
-// export const gridRowGap = style({
+// const gridRowGap = style({
 //   prop: 'gridRowGap',
 //   key: 'space',
 //   transformValue: getPx,
 //   scale: spaceScale,
 // })
 
-// export const gridColumn = style({ prop: 'gridColumn' })
-// export const gridRow = style({ prop: 'gridRow' })
-// export const gridAutoFlow = style({ prop: 'gridAutoFlow' })
-// export const gridAutoColumns = style({ prop: 'gridAutoColumns' })
-// export const gridAutoRows = style({ prop: 'gridAutoRows' })
-// export const gridTemplateColumns = style({ prop: 'gridTemplateColumns' })
-// export const gridTemplateRows = style({ prop: 'gridTemplateRows' })
-// export const gridTemplateAreas = style({ prop: 'gridTemplateAreas' })
-// export const gridArea = style({ prop: 'gridArea' })
+// const gridColumn = style({ prop: 'gridColumn' })
+// const gridRow = style({ prop: 'gridRow' })
+// const gridAutoFlow = style({ prop: 'gridAutoFlow' })
+// const gridAutoColumns = style({ prop: 'gridAutoColumns' })
+// const gridAutoRows = style({ prop: 'gridAutoRows' })
+// const gridTemplateColumns = style({ prop: 'gridTemplateColumns' })
+// const gridTemplateRows = style({ prop: 'gridTemplateRows' })
+// const gridTemplateAreas = style({ prop: 'gridTemplateAreas' })
+// const gridArea = style({ prop: 'gridArea' })
 
 // borders
-export const border = style({
+const border = style({
   prop: 'border',
   key: 'borders',
 })
 
-export const borderWidth = style({
+const borderWidth = style({
   prop: 'borderWidth',
   key: 'borderWidths',
   transformValue: getPx,
 })
 
-export const borderStyle = style({
+const borderStyle = style({
   prop: 'borderStyle',
   key: 'borderStyles',
 })
 
-export const borderColor = style({
+const borderColor = style({
   prop: 'borderColor',
   key: 'colors',
 })
 
-export const borderTop = style({
+const borderTop = style({
   prop: 'borderTop',
   key: 'borders',
 })
 
-export const borderRight = style({
+const borderRight = style({
   prop: 'borderRight',
   key: 'borders',
 })
 
-export const borderBottom = style({
+const borderBottom = style({
   prop: 'borderBottom',
   key: 'borders',
 })
 
-export const borderLeft = style({
+const borderLeft = style({
   prop: 'borderLeft',
   key: 'borders',
 })
 
-export const borderRadius = style({
+const borderRadius = style({
   prop: 'borderRadius',
   alias: 'br',
   key: 'radii',
   transformValue: getPx,
 })
 
-export const borders = compose(
+const borders = compose(
   border,
   borderTop,
   borderRight,
@@ -471,19 +471,19 @@ export const borders = compose(
   borderRadius
 )
 
-export const boxShadow = style({ prop: 'boxShadow', key: 'shadows', alias: 'bs' })
+const boxShadow = style({ prop: 'boxShadow', key: 'shadows', alias: 'bs' })
 
-export const opacity = style({ prop: 'opacity', alias: 'op' })
-export const overflow = style({ prop: 'overflow' })
+const opacity = style({ prop: 'opacity', alias: 'op' })
+const overflow = style({ prop: 'overflow' })
 
 // backgrounds
-export const background = style({ prop: 'background' })
-export const backgroundImage = style({ prop: 'backgroundImage' })
-export const backgroundSize = style({ prop: 'backgroundSize' })
-export const backgroundPosition = style({ prop: 'backgroundPosition' })
-export const backgroundRepeat = style({ prop: 'backgroundRepeat' })
+const background = style({ prop: 'background' })
+const backgroundImage = style({ prop: 'backgroundImage' })
+const backgroundSize = style({ prop: 'backgroundSize' })
+const backgroundPosition = style({ prop: 'backgroundPosition' })
+const backgroundRepeat = style({ prop: 'backgroundRepeat' })
 
-export const appearance = compose(
+const appearance = compose(
   color,
   borders,
   boxShadow,
@@ -497,14 +497,14 @@ export const appearance = compose(
 )
 
 // position
-export const position = style({ prop: 'position', alias: 'pos' })
-export const zIndex = style({ prop: 'zIndex', alias: 'zi', key: 'zIndices' })
-export const top = style({ prop: 'top', transformValue: getPx })
-export const right = style({ prop: 'right', transformValue: getPx })
-export const bottom = style({ prop: 'bottom', alias: 'bot', transformValue: getPx })
-export const left = style({ prop: 'left', alias: 'left', transformValue: getPx })
+const position = style({ prop: 'position', alias: 'pos' })
+const zIndex = style({ prop: 'zIndex', alias: 'zi', key: 'zIndices' })
+const top = style({ prop: 'top', transformValue: getPx })
+const right = style({ prop: 'right', transformValue: getPx })
+const bottom = style({ prop: 'bottom', alias: 'bot', transformValue: getPx })
+const left = style({ prop: 'left', alias: 'left', transformValue: getPx })
 
-export const positionProps = compose(
+const positionProps = compose(
   position,
   zIndex,
   top,
