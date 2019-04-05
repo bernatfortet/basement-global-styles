@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components'
 
 import { s } from './global-styles'
 import { boxProps, textProps, flexProps, layoutProps } from './primitive'
-export { dimensions } from './quickProps/dimensions'
 import * as types from './types';
 import { defaultBreakpoints } from './utils'
 import { space } from './styledSystems';
