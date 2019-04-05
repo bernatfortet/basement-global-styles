@@ -129,7 +129,7 @@ const margin = style({
   alias: 'm',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  // scale: spaceScale,
 })
 
 const marginTop = style({
@@ -137,7 +137,7 @@ const marginTop = style({
   alias: 'mt',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  // scale: spaceScale,
 })
 
 const marginBottom = style({
@@ -145,7 +145,7 @@ const marginBottom = style({
   alias: 'mb',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  // scale: spaceScale,
 })
 
 const marginLeft = style({
@@ -153,7 +153,7 @@ const marginLeft = style({
   alias: 'ml',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  // scale: spaceScale,
 })
 
 const marginRight = style({
@@ -161,7 +161,7 @@ const marginRight = style({
   alias: 'mr',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  // scale: spaceScale,
 })
 
 const padding = style({
@@ -177,7 +177,7 @@ const paddingTop = style({
   alias: 'pt',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  // scale: spaceScale,
 })
 
 const paddingBottom = style({
@@ -185,7 +185,7 @@ const paddingBottom = style({
   alias: 'pb',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  // scale: spaceScale,
 })
 
 const paddingLeft = style({
@@ -193,7 +193,7 @@ const paddingLeft = style({
   alias: 'pl',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  // scale: spaceScale,
 })
 
 const paddingRight = style({
@@ -201,7 +201,7 @@ const paddingRight = style({
   alias: 'pr',
   key: 'space',
   transformValue: getSpace,
-  scale: spaceScale,
+  // scale: spaceScale,
 })
 
 export const space = mapProps(props => ({
@@ -255,7 +255,7 @@ const fontSize = style({
   key: 'fontSizes',
   alias: 'fs',
   transformValue: getPx,
-  scale: [12, 14, 16, 20, 24, 32, 48, 64, 72],
+  // scale: [12, 14, 16, 20, 24, 32, 48, 64, 72],
 })
 
 const fontFamily = style({
@@ -289,6 +289,15 @@ const letterSpacing = style({
   key: 'letterSpacings',
   transformValue: getPx,
 })
+
+export const textProps = compose(
+  fontSize,
+  fontFamily,
+  fontWeight,
+  lineHeight,
+  fontStyle,
+  letterSpacing,
+)
 
 // layout
 
