@@ -14,6 +14,7 @@ const App: React.SFC<Props> = (props: Props) => {
   return <Row w='100%' flex1 center>
     <Box bg='black' br={12} color='red' p={20} mh={[100, 200]} pos='relative' top={100}>
       asdf
+      <Test>asdf</Test>
     </Box>
   </Row>
   
@@ -27,4 +28,4 @@ const App: React.SFC<Props> = (props: Props) => {
 export default App
 
 
-const Test = styled.input` ${s.boxProps} `
+const Test = styled.div` ${s.boxProps} ${s.media.lg` display:none;`}`
