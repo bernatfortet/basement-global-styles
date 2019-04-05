@@ -11,7 +11,7 @@ type Props = {
 
 const App: React.SFC<Props> = (props: Props) => {
   const {} = props
-  return <Row w='100%' flex1 center>
+  return <Row w='100%' flex1 center >
     <Box bg='black' br={12} color='red' p={20} mh={[100, 200]} pos='relative' top={100}>
       asdf
       <Test>asdf</Test>

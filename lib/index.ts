@@ -3,10 +3,10 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 
 import { s } from './global-styles'
-import { boxProps, textProps, flexProps, layoutProps } from './primitive'
+import { boxProps, textProps } from './primitive'
 import * as types from './types';
 import { defaultBreakpoints } from './utils'
-import { space } from './styledSystems';
+import { spacing } from './styledSystems';
 
 const Root = styled.div``
 
@@ -48,9 +48,9 @@ const media = {
   `
 }
 
-export const Column = styled(Root).attrs({ col: true })` ${boxProps} `
+export const Column = styled(Root).attrs({ col: true })<BoxProps>` ${boxProps} `
 
-export const Row = styled(Root).attrs({ row: true })` ${boxProps} `
+export const Row = styled(Root).attrs({ row: true })<BoxProps>` ${boxProps} `
 
 export const Box = styled(Root)<BoxProps>` ${boxProps}`
 
@@ -65,10 +65,8 @@ const globalStyles = {
   actionable,
 
   textProps,
-  flexProps,
-  layoutProps,
-  spacingProps: space,
   boxProps,
+  spacingProps: spacing,
 
   breakpoints: defaultBreakpoints,
 }

@@ -18,6 +18,8 @@ export const s: GlobalStyles = {
   aife:           'align-items: flex-end; display:flex;',
   aib:            'align-items: baseline; display:flex;',
 
+
+  /** Blah blah */
   jcc:            'justify-content: center; display:flex;',
 	jcfs:           'justify-content: flex-start; display:flex;',
   jcfe:           'justify-content: flex-end; display:flex;',

@@ -1,3 +1,7 @@
+type UnitValue = string | number | string[] | number[]
+type StringValue = string  | string[]
+type NumberValue = number  | number[]
+
 // based on styled-system 4.1.1
 
 const defaultBreakpoints = [40, 52, 64].map(n => n + 'em')
@@ -204,7 +208,7 @@ const paddingRight = style({
   // scale: spaceScale,
 })
 
-export const space = mapProps(props => ({
+export const spacing = mapProps(props => ({
   ...props,
   mt: is(props.mv) ? props.mv : props.mt,
   mb: is(props.mv) ? props.mv : props.mb,
@@ -229,22 +233,23 @@ export const space = mapProps(props => ({
   )
 )
 
-// color
-const textColor = style({
-  prop: 'color',
-  key: 'colors',
-})
+type SpacingProps = {
+  m?: UnitValue,
+  mh?: UnitValue,
+  mv?: UnitValue,
+  mt?: UnitValue,
+  mr?: UnitValue,
+  mb?: UnitValue,
+  ml?: UnitValue,
 
-const backgroundColor = style({
-  prop: 'backgroundColor',
-  alias: 'bg',
-  key: 'colors',
-})
-
-const color = compose(
-  textColor,
-  backgroundColor
-)
+  p?: UnitValue,
+  ph?: UnitValue,
+  pv?: UnitValue,
+  pt?: UnitValue,
+  pr?: UnitValue,
+  pb?: UnitValue,
+  pl?: UnitValue,
+}
 
 // typography
 
@@ -287,10 +292,11 @@ const fontStyle = style({
 const letterSpacing = style({
   prop: 'letterSpacing',
   key: 'letterSpacings',
+  alias: 'ls',
   transformValue: getPx,
 })
 
-export const textProps = compose(
+export const typography = compose(
   fontSize,
   fontFamily,
   fontWeight,
@@ -298,6 +304,16 @@ export const textProps = compose(
   fontStyle,
   letterSpacing,
 )
+
+export type TypographyProps = {
+  fontSize?: UnitValue,
+  fontFamily?: StringValue,
+  fontWeight?: NumberValue,
+  lineHeight?: StringValue,
+  fontStyle?: StringValue,
+  letterSpacing?: StringValue,
+}
+
 
 // layout
 
@@ -374,19 +390,33 @@ const layout = compose(
   verticalAlign,
 )
 
+type LayoutProps = {
+  w?: UnitValue,
+  maxw?: UnitValue,
+  minw?: UnitValue,
+
+  h?: UnitValue,
+  minh?: UnitValue,
+  maxh?: UnitValue,
+
+  display?: StringValue,
+  sz?: UnitValue,
+  verticalAlign?: StringValue,
+}
+
 
 // flexbox
-const alignItems = style({ prop: 'alignItems' })
-const alignContent = style({ prop: 'alignContent' })
-const justifyItems = style({ prop: 'justifyItems' })
-const justifyContent = style({ prop: 'justifyContent' })
-const flexWrap = style({ prop: 'flexWrap' })
-const flexBasis = style({ prop: 'flexBasis', transformValue: getWidth })
-const flexDirection = style({ prop: 'flexDirection' })
-const flex = style({ prop: 'flex' })
-const justifySelf = style({ prop: 'justifySelf' })
-const alignSelf = style({ prop: 'alignSelf' })
-const order = style({ prop: 'order' })
+// const alignItems = style({ prop: 'alignItems' })
+// const alignContent = style({ prop: 'alignContent' })
+// const justifyItems = style({ prop: 'justifyItems' })
+// const justifyContent = style({ prop: 'justifyContent' })
+// const flexWrap = style({ prop: 'flexWrap' })
+// const flexBasis = style({ prop: 'flexBasis', transformValue: getWidth })
+// const flexDirection = style({ prop: 'flexDirection' })
+// const flex = style({ prop: 'flex' })
+// const justifySelf = style({ prop: 'justifySelf' })
+// const alignSelf = style({ prop: 'alignSelf' })
+// const order = style({ prop: 'order' })
 
 // grid
 // const gridGap = style({
@@ -419,6 +449,25 @@ const order = style({ prop: 'order' })
 // const gridTemplateRows = style({ prop: 'gridTemplateRows' })
 // const gridTemplateAreas = style({ prop: 'gridTemplateAreas' })
 // const gridArea = style({ prop: 'gridArea' })
+
+
+
+// color
+const textColor = style({
+  prop: 'color',
+  key: 'colors',
+})
+
+const backgroundColor = style({
+  prop: 'backgroundColor',
+  alias: 'bg',
+  key: 'colors',
+})
+
+const color = compose(
+  textColor,
+  backgroundColor
+)
 
 // borders
 const border = style({
@@ -481,6 +530,18 @@ const borders = compose(
   borderRadius
 )
 
+type BorderProps = {
+  border?: UnitValue,
+  borderTop?: UnitValue,
+  borderRight?: UnitValue,
+  borderBottom?: UnitValue,
+  borderLeft?: UnitValue,
+  borderWidth?: UnitValue,
+  borderStyle?: UnitValue,
+  borderColor?: UnitValue,
+  borderRadius?: UnitValue,
+}
+
 const boxShadow = style({ prop: 'boxShadow', key: 'shadows', alias: 'bs' })
 
 const opacity = style({ prop: 'opacity', alias: 'op' })
@@ -494,8 +555,9 @@ const backgroundPosition = style({ prop: 'backgroundPosition' })
 const backgroundRepeat = style({ prop: 'backgroundRepeat' })
 
 const appearance = compose(
-  color,
   borders,
+  backgroundColor,
+  color,
   boxShadow,
   opacity,
   overflow,
@@ -505,6 +567,40 @@ const appearance = compose(
   backgroundPosition,
   backgroundRepeat,
 )
+
+type AppearanceProps = BorderProps & {
+  /** background-color */
+  bg?: StringValue,
+
+  /** color */
+  color?: StringValue,
+
+  /** background */
+  background?: StringValue,
+
+  /** box-sadow */
+  bs?: StringValue,
+
+  /** border-radius: 50% | 8 */
+  br?: UnitValue,
+
+  /** opacity => Depracted, use op  */
+  opacity?: UnitValue,
+
+  /** opacity  */
+  op?: UnitValue,
+
+  overflow?: StringValue,
+
+  backgroundImage?: StringValue,
+
+  backgroundSize?: StringValue,
+
+  backgroundPosition?: StringValue,
+
+  backgroundRepeat?: StringValue,
+}
+
 
 // position
 const position = style({ prop: 'position', alias: 'pos' })
@@ -523,10 +619,29 @@ const positionProps = compose(
   left,
 )
 
+type PositionProps = {
+  /** position */
+  pos?: StringValue,
+
+  /** z-index */
+  zi?: NumberValue,
+
+  top?: UnitValue,
+
+  right?: UnitValue,
+
+  bottom?: UnitValue,
+
+  left?: UnitValue,
+}
+
 
 export const systemBox = compose(
   layout,
-  space,
+  typography,
+  spacing,
   appearance,
   positionProps,
 )
+
+export type StyledSystemPropsTypes = LayoutProps & SpacingProps & AppearanceProps & PositionProps

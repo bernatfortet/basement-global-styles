@@ -1,12 +1,13 @@
 import styled, { css } from 'styled-components'
 import { s } from './global-styles'
 
-import { BoxProps, LayoutProps, FlexProps, TextProps } from './types'
-import { systemBox, textProps as styledSystemTextProps } from './styledSystems';
+import { BoxProps, QuickFlexProps, QuickTypographyProps, QuickPositionProps } from './types'
+import * as styledSystem from './styledSystems';
+import { TypographyProps } from './styledSystems'
 
 const defaultBreakpoints = [576, 768, 992, 1200]
 
-export const flexProps = css<FlexProps>`
+const quickFlexProps = css<QuickFlexProps>`
 	${ p => p.jcc ? s.jcc : ''}
 	${ p => p.jcsa ? s.jcsa : ''}
 	${ p => p.jcsb ? s.jcsb : ''}
@@ -46,14 +47,25 @@ export const flexProps = css<FlexProps>`
   ${ p => p.flex1 ? `display:flex; flex: 1 1 0%;` : '' }
 `
 
-export const layoutProps = css<LayoutProps>`
+
+const quickPositionProps = css<QuickPositionProps>`
 	${ p => p.pabs ? s.pabs : ''}
 	${ p => p.prel ? s.prel : ''}
 	${ p => p.pfix ? `position: fixed;` : ''}
 `
 
-export const textProps = css<TextProps>`
-  ${styledSystemTextProps}
+// Box Props
+export const boxProps = css<BoxProps>`
+  ${styledSystem.systemBox}
+	${quickFlexProps}
+  ${quickPositionProps}
+  `
+
+// ------------------------------------------
+
+// TextProps
+
+const quickTypographyProps = css<QuickTypographyProps>`
   ${p => p.light ? `font-weight:300;` : ''}
   ${p => p.regular ? `font-weight:400;` : ''}
   ${p => p.medium ? `font-weight:500;` : ''}
@@ -68,15 +80,7 @@ export const textProps = css<TextProps>`
 
   ${p => p.upcase ? `text-transform:uppercase;` : ''}
 `
-
-export const boxProps = css<BoxProps>`
-  ${systemBox}
-
-	${flexProps}
-	${layoutProps}
-  `
-	// ${appearance}
-	// ${dimensions}
-	// ${spacing}
-	// ${appearanceProps}
-
+export const textProps = css<TypographyProps & QuickTypographyProps>`
+  ${quickTypographyProps}
+  ${styledSystem.typography}
+`
