@@ -1,42 +1,50 @@
 import { CSSProperties, Ref } from 'react'
 import { MediaValues } from './utils';
+import { StyledSystemPropsTypes } from './styledSystems'
 
-export type UnitValue = string | number | string[] | number[] | Partial<{ [Key in MediaValues]: string | number }>
+//Partial<{ [Key in MediaValues]: string  }
 
-export type PropsToStyleMap<ValueType> = {
-  [key: string]: ValueType
+export interface QuickTypographyProps {
+
+  // Font Weight ---
+  /** Font Weight: 300 */
+  light?: boolean,
+
+  /** Font Weight: 400 */
+  regular?: boolean,
+
+  /** Font Weight: 500 */
+  medium?: boolean,
+
+  /** Font Weight: 600 */
+  semi?: boolean,
+
+  /** Font Weight: 700 */
+  bold?: boolean,
+
+  /** Font Weight: 800 */
+  extraBold?: boolean,
+
+  /** Font Weight: 900 */
+  black?: boolean,
+
+
+  // Alignment ---
+
+  /** text-align: left */
+  tal?: boolean,
+
+  /** text-align: right */
+  tar?: boolean,
+
+  /** text-align: center */
+  tac?: boolean,
+
+  /** text-transform: uppercase */
+  upcase?: boolean,
 }
 
-export type DimensionProps = {
-  w?: string | number,
-  h?: string | number,
-  sz?: number | string,
-  minw?: string | number,
-  minh?: string | number,
-  maxw?: string | number,
-  maxh?: string | number,
-}
-
-export type SpacingProps = {
-  [key: string]: number | string | undefined,
-  m?: number | string,
-  mh?: number,
-  mv?: number,
-  mt?: number,
-  mr?: number,
-  mb?: number,
-  ml?: number,
-
-  p?: number | string,
-  ph?: number,
-  pv?: number,
-  pt?: number,
-  pr?: number,
-  pb?: number,
-  pl?: number,
-}
-
-export type FlexProps = {
+export type QuickFlexProps = {
   jcc?: boolean
   jcsa?: boolean
   jcsb?: boolean
@@ -70,76 +78,89 @@ export type FlexProps = {
   flex?: number | string
   flex1?: boolean
   flxOrder?: number
+
 }
 
-export type RowColProps = {
-  hCenter?: boolean,
-  vCenter?: boolean,
-}
-
-export type LayoutProps = {
+export type QuickPositionProps = {
   /** position: absolute */
   pabs?: boolean,
+
   /** position: relative */
   prel?: boolean,
+
   /** position: fixed */
   pfix?: boolean,
-
-  top?: number | string,
-  botttom?: number | string,
-  left?: number | string,
-  right?: number | string,
-
-  /** z-index */
-  zi?: number,
-
-  display?: string,
 }
 
-export type AppearanceProps = {
-  /** background-color => Depracated, use bg */
-  background?: string,
-  /** background-color:  */
-  bg?: string,
-  /** border-radius: 50% | 8 */
-  br?: string | number,
+type QuickPropsTypes = QuickTypographyProps & QuickFlexProps & QuickPositionProps
 
-  color?: string,
 
-  /** opacity => Depracted, use op  */
-  opacity?: number,
-  /** opacity  */
-  op?: number,
-}
-
-export interface BoxProps extends SpacingProps, RowColProps {
-  [key: string]: any
+export type BoxProps = {
   center?: boolean,
-}
+} & StyledSystemPropsTypes & QuickPropsTypes
+
 
 
 export type GlobalStyles = {
+  /** position: absolute; */
   pabs: string,
+
+  /** position: relative; */
   prel: string,
 
+  // Flex -----------------
+
+  /** display: flex; */
   flex: string,
-  flx: string,
+
+  /** flex: 1 1 0%; display:flex; */
   flex1: string,
+
+  /** flex-direction: row; display:flex; */
   flxRow: string,
+
+  /** flex-direction: column; display:flex; */
   flxCol: string,
+
+  /** flex-direction: row-reverse; display:flex; */
   flxRowReverse: string,
+
+  /** flex-direction: column-reverse; display:flex; */
   flxColReverse: string,
+
+  /** */
   flxWrap: string,
+  
+  // Align Items -----------------
+  /** align-items: flex-start */
   aifs: string,
+
+  /** align-items: center */
   aic: string,
+
+  /** align-items: stretch */
   ais: string,
+
+  /** align-items: flex-end */
   aife: string,
+
+  /** align-items: baseline */
   aib: string,
 
+  // Justify Content -----------------
+  /** justify-content: center  */
   jcc: string,
+
+  /** justify-content: flext-start */
   jcfs: string,
+
+  /** justify-content: flex-end */
   jcfe: string,
+
+  /** justify-content: space-between */
   jcsb: string,
+
+  /** justify-content: space-around */
   jcsa: string,
 
   asfs: string,
@@ -194,66 +215,8 @@ export type WebGlobalStyles = {
   },
 }
 
-
-
 export type MediaProps = {
   smHide?: boolean,
   mdHide?: boolean,
   lgHide?: boolean,
-}
-
-export interface TextProps {
-
-  fs?: number | string,
-
-  // Font Weight ---
-  /** Font Weight: 300 */
-  light?: boolean,
-
-  /** Font Weight: 400 */
-  regular?: boolean,
-
-  /** Font Weight: 500 */
-  medium?: boolean,
-
-  /** Font Weight: 600 */
-  semi?: boolean,
-
-  /** Font Weight: 700 */
-  bold?: boolean,
-
-  /** Font Weight: 800 */
-  black?: boolean,
-
-  /** Font Weight */
-  weight?: number | string,
-
-
-  // Alignment ---
-
-  /** text-align: center => Depracated, use tac */
-  center?: boolean,
-
-  /** text-align: right => Depracated, use tar  */
-  right?: boolean,
-
-  /** text-align: left */
-  tal?: boolean,
-
-  /** text-align: right */
-  tar?: boolean,
-
-  /** text-align: center */
-  tac?: boolean,
-
-
-  // Other --- 
-  /** Line height */
-  lh?: number | string,
-
-  /** Letter Spacing */
-  ls?: number | string,
-
-  /** text-transform: uppercase */
-  upcase?: boolean,
 }

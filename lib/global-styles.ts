@@ -5,7 +5,6 @@ export const s: GlobalStyles = {
   prel:            'position: relative;',
 
 	flex:           'display:flex;',
-	flx:           	'display:flex;', // Depracated
   flex1:          'flex: 1 1 0%; display:flex;',
   flxRow:         'flex-direction: row; display:flex;',
 	flxCol:         'flex-direction: column; display:flex;',
@@ -18,6 +17,8 @@ export const s: GlobalStyles = {
   aife:           'align-items: flex-end; display:flex;',
   aib:            'align-items: baseline; display:flex;',
 
+
+  /** Blah blah */
   jcc:            'justify-content: center; display:flex;',
 	jcfs:           'justify-content: flex-start; display:flex;',
   jcfe:           'justify-content: flex-end; display:flex;',

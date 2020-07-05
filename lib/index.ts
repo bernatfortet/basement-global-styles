@@ -1,12 +1,12 @@
 import React from 'react'
 
-import styled, { css } from 'styled-components'
+import styled, { css, ThemedCssFunction } from 'styled-components'
 
 import { s } from './global-styles'
-import { boxProps, dimensionProps, spacingProps, textProps, flexProps, positionProps, appearanceProps } from './primitive'
-export { dimensions } from './quickProps/dimensions'
+import { boxProps, textProps } from './primitive'
 import * as types from './types';
-import { parseUnit, createMediaQuery, defaultBreakpoints } from './utils'
+import { spacing, defaultBreakpoints } from './styledSystems';
+import { defaultBreakpointsObject } from './utils';
 
 const Root = styled.div``
 
@@ -19,20 +19,29 @@ const unselectable = css` user-select:none; & * { user-select:none; } `
 const untouchable = css` ${unselectable} pointer-events:none; & * { pointer-events:none; }  `
 const actionable = css` ${unselectable} cursor:pointer;  `
 
-const mediaQueries = defaultBreakpoints.map(unit => createMediaQuery(unit))
+const sizes = defaultBreakpointsObject
 
-const media = {
-  sm: mediaQueries[0],
-  md: mediaQueries[1],
-  lg: mediaQueries[2],
-  xlg: mediaQueries[3],
-}
+export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
+  (acc, label) => {
+    acc[label] = (first: any, ...interpolations: any[]) => css`
+      @media (max-width: ${sizes[label]}) {
+        ${css(first, ...interpolations)}
+      }
+    `;
 
-export const Column = styled(Root).attrs({ col: true })` ${boxProps} `
+    return acc;
+  },
+  {} as { [key in keyof typeof sizes]: ThemedCssFunction<any> },
+);
 
-export const Row = styled(Root).attrs({ row: true })` ${boxProps} `
+const mediaQuery = (maxWidth: number) =>
+  `@media (max-width: ${maxWidth}px)`;
 
-export const Box = styled(Root)` ${boxProps}`
+export const Column = styled(Root).attrs({ col: true })<BoxProps>` ${boxProps} `
+
+export const Row = styled(Root).attrs({ row: true })<BoxProps>` ${boxProps} `
+
+export const Box = styled(Root)<BoxProps>` ${boxProps}`
 
 const globalStyles = {
   ...s,
@@ -44,11 +53,11 @@ const globalStyles = {
   untouchable,
   actionable,
 
-  dimensionProps,
-  spacingProps,
-  flexProps,
-  positionProps,
-  appearanceProps,
+  mediaQuery,
+
+  textProps,
+  boxProps,
+  spacingProps: spacing,
 
   breakpoints: defaultBreakpoints,
 }

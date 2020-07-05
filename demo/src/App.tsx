@@ -1,33 +1,56 @@
 import * as React from 'react'
 import styled, { css } from 'styled-components'
-// import { Box, Row, s } from '@bernatfortet/global-styles'
 
-import { Column, Box, Row, s } from '../../lib/index'
-import { dimensions } from '../../lib'
+import { Column, Box, Row, s, BoxProps } from '../../lib/index'
+import { boxProps } from '../../lib/primitive';
 
-dimensions(
-  {
-    // sz: 200,
-    // w: [50, 100, 200],
-    // h: [50 ,100, 200],
-    maxh: { base: 400, lg: 200, sm: 100, }
-    // key: '',
-  }
-)
 
 type Props = {
 }
 
 const App: React.SFC<Props> = (props: Props) => {
   const {} = props
-  
-  return(
-    <Row vCenter className='links'>
-
-      <Box bg='orange' p={[50, 20]} m={{xlg: 20, sm: 0}}>I'm a box with Padding and Margin</Box>
-      <Box bg='orange' m={20}>asdf</Box>
-    </Row>
-  )
+  return <Wrapper>
+    <Box sz={40} bg='red' m={8} />
+    <Box sz={40} bg='red' m={8} />
+    <Box sz={40} bg='red' m={8} />
+    <Box sz={40} bg='red' m={8} />
+    <Box sz={40} bg='red' m={8} />
+    <Box sz={40} bg='red' m={8} />
+    <Box sz={40} bg='red' m={8} />
+    <Box sz={40} bg='red' m={8} />
+  </Wrapper>
 }
 
 export default App
+
+const sizes = {
+  desktop: 992,
+  tablet: 768,
+  phone: 576,
+}
+
+// Iterate through the sizes and create a media template
+
+// const media = Object.keys(sizes).reduce((acc, label) => {
+//   acc[label] = (...args: any) => css`
+//     @media (max-width: ${sizes[label] / 16}em) {
+//       //@ts-ignore
+//       ${css(...args)}
+//     }
+//   `
+
+//   return acc
+// }, {})
+
+const t = css`${s.media.lg` ${s.flxCol} ${s.aic} margin-top:0px; margin-bottom:40px;`}`
+console.log('t: ', t)
+const Wrapper = styled(Row)` margin:0 auto; margin-bottom:60px; margin-top:120px;
+  ${t}
+`
+
+
+export const ResponsiveRow = styled(Box).attrs({ flexDirection: ['column', 'row']})`
+`
+
+

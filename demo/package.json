@@ -7,10 +7,10 @@
     "start": "parcel index.html --open"
   },
   "dependencies": {
-    "@types/react": "^16.7.18",
+    "@types/react": "^16.8.12",
     "@types/react-dom": "^16.0.11",
     "parcel-bundler": "^1.11.0",
-    "react": "^16.7.0",
+    "react": "^16.8.6",
     "react-dom": "^16.7.0"
   }
 }

@@ -1,89 +1,13 @@
 import styled, { css } from 'styled-components'
 import { s } from './global-styles'
 
-import { parseUnit, createMediaQuery, is } from './utils'
-import { BoxProps, SpacingProps, DimensionProps, LayoutProps, AppearanceProps, FlexProps, TextProps } from './types'
-import { spacing, dimensions } from './quickProps';
+import { BoxProps, QuickFlexProps, QuickTypographyProps, QuickPositionProps } from './types'
+import * as styledSystem from './styledSystems';
+import { TypographyProps } from './styledSystems'
 
 const defaultBreakpoints = [576, 768, 992, 1200]
 
-const DIMENSIONS_REG = /^((max)|(min))[wh]?$/
-
-
-export const dimensionProps = css<DimensionProps>`
-  
-	${p => p.w ? `width:${parseUnit(p.w)};` : ''}
-  ${p => p.h ? `height:${parseUnit(p.h)};` : ''}
-  
-	${p => p.minw ? `min-width:${parseUnit(p.minw)};` : ''}
-	${p => p.minh ? `min-height:${parseUnit(p.minh)};` : ''}
-	${p => p.maxw ? `max-width:${parseUnit(p.maxw)};` : ''}
-  ${p => p.maxh ? `max-height:${parseUnit(p.maxh)};` : ''}
-
-	${p => p.sz ? `width:${parseUnit(p.sz)}; height:${parseUnit(p.sz)};` : ''}
-`
-
-// Spacing Properties
-const REG = /^[mp][trblhv]?$/
-
-const properties: { [key: string]: string } = {
-  m: 'margin',
-  p: 'padding'
-}
-const directions: { [key: string]: string | string[] } = {
-  t: 'Top',
-  r: 'Right',
-  b: 'Bottom',
-  l: 'Left',
-  v: ['Top', 'Bottom'],
-  h: ['Left', 'Right'],
-}
-
-const getSpaceStyleName = (key: string) => {
-  const [a, b] = key.split('')
-  const property = properties[a]
-  const direction = directions[b] || ''
-
-  return Array.isArray(direction)
-    ? direction.map(dir => property + dir)
-    : [property + direction]
-}
-
-export const spacingProps = (props: SpacingProps) => {
-  const keys = Object.keys(props).filter(key => REG.test(key))
-  
-  return keys.map(key => {
-    const value = props[key]
-    const styleNames = getSpaceStyleName(key)
-    
-    const style = (n: any) => is(n) ? styleNames.reduce((a, prop) => ({
-      ...a,
-      [prop]: parseUnit(n)
-    }), {}) : null
-    
-    if (!Array.isArray(value)) {
-      return style(value)
-    }
-    
-    let styles: any = {}
-
-    const breakpoints = [null, ...defaultBreakpoints.map(createMediaQuery)]
-    
-    for (let i = 0; i < value.length; i++) {
-      const media = breakpoints[i]
-      if (!media) {
-        styles = style(value[i]) || {}
-        continue
-      }
-      const rule = style(value[i])
-      if (!rule) continue
-      styles[media] = rule
-    }
-    return styles
-  })
-}
-
-export const flexProps = css<FlexProps>`
+const quickFlexProps = css<QuickFlexProps>`
 	${ p => p.jcc ? s.jcc : ''}
 	${ p => p.jcsa ? s.jcsa : ''}
 	${ p => p.jcsb ? s.jcsb : ''}
@@ -123,57 +47,40 @@ export const flexProps = css<FlexProps>`
   ${ p => p.flex1 ? `display:flex; flex: 1 1 0%;` : '' }
 `
 
-export const layoutProps = css<LayoutProps>`
+
+const quickPositionProps = css<QuickPositionProps>`
 	${ p => p.pabs ? s.pabs : ''}
 	${ p => p.prel ? s.prel : ''}
 	${ p => p.pfix ? `position: fixed;` : ''}
-
-	${ p => p.top ? `top: ${parseUnit(p.top)};` : ''}
-	${ p => p.botttom ? `botttom: ${parseUnit(p.botttom)};` : ''}
-	${ p => p.left ? `left: ${parseUnit(p.left)};` : ''}
-  ${ p => p.right ? `right: ${parseUnit(p.right)};` : '' }
-  
-  ${ p => p.zi ? `z-index: ${p.zi};` : '' }
-  ${ p => p.display ? `display:${p.display};` : ''}
 `
 
-export const appearanceProps = css<AppearanceProps>`
-	${ p => p.background ? `background-color:${p.background};` : ''}
-	${ p => p.bg ? `background-color:${p.bg};` : ''}
-  ${ p => p.color ? `color:${p.color};` : ''}
-  
-  ${ p => p.br ? `border-radius:${parseUnit(p.br)};` : ''}
-  
-	${p => p.opacity ? `opacity:${p.opacity};` : ''}
-  ${p => p.op ? `opacity:${p.op};` : ''}
-`
+// Box Props
+export const boxProps = css<BoxProps>`
+  ${styledSystem.systemBox}
+	${quickFlexProps}
+  ${quickPositionProps}
+  `
 
-export const textProps = css<TextProps>`
-  ${p => p.fs ? `font-size:${parseUnit(p.fs)};` : ''}
+// ------------------------------------------
 
+// TextProps
+
+const quickTypographyProps = css<QuickTypographyProps>`
   ${p => p.light ? `font-weight:300;` : ''}
   ${p => p.regular ? `font-weight:400;` : ''}
   ${p => p.medium ? `font-weight:500;` : ''}
   ${p => p.semi ? `font-weight:600;` : ''}
   ${p => p.bold ? `font-weight:700;` : ''}
-  ${p => p.weight ? `font-weight:${p.weight};` : ''}
+  ${p => p.extraBold ? `font-weight:800;` : ''}
+  ${p => p.black ? `font-weight:900;` : ''}
 
-  ${p => p.center ? `text-align:center;` : ''}
-  ${p => p.right ? `text-align:right;` : ''}
   ${p => p.tal ? `text-align:left;` : ''}
   ${p => p.tac ? `text-align:center;` : ''}
   ${p => p.tar ? `text-align:right;` : ''}
 
-  ${p => p.lh ? `line-height:${parseUnit(p.lh)};` : ''}
-  ${p => p.ls ? `letter-spacing:${parseUnit(p.ls)};` : ''}
   ${p => p.upcase ? `text-transform:uppercase;` : ''}
 `
-
-export const boxProps = css<BoxProps>`
-	${spacing}
-	${dimensions}
-	${flexProps}
-	${layoutProps}
-	${appearanceProps}
+export const textProps = css<TypographyProps & QuickTypographyProps>`
+  ${quickTypographyProps}
+  ${styledSystem.typography}
 `
-

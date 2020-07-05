@@ -4,7 +4,7 @@ import { View } from 'react-native'
 import styled from 'styled-components'
 
 import { s } from '../global-styles'
-import { boxProps, dimensionProps, spacingProps, textProps } from '../primitive'
+import { boxProps, textProps } from '../primitive'
 
 
 const Root = styled(View)``
@@ -22,14 +22,11 @@ export const Box = styled(Root)`
 	${boxProps}
 `
 export const Flex1 = styled(Root)` display:flex; flex:1;`
-export const Spacer = styled(Root)` ${dimensionProps} `
 
 const globalStyles = {
 	...s,
 	boxProps,
-	spacingProps,
 	textProps,
-	dimensionProps,
 }
 
 // Helpers
